@@ -1,10 +1,16 @@
 <?php
 /**
-* Created By : Reaper45
-* Date : 23/06/2017
-* Time : 00:25 AM
-*
-* Project Entry
-*/
+ * Created by Atom.
+ * User: reaper45
+ * Date: 06/23/17
+ * Time : 00:25 AM
+ *
+ * Project Entry
+ */
 
-require_once 'file';
+function getView()
+{
+  $data['title'] = "Testing View";
+  return new View($data,"views/templates/header");
+}
+getView();

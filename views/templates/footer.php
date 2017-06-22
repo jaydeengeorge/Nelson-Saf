@@ -1,11 +1,12 @@
 <?php
 /**
-* Created By : Reaper45
-* Date : 23/06/2017
-* Time : 00:40 AM
-*
-* Footer for every page in this project.
-*/
+ * Created by Atom.
+ * User: reaper45
+ * Date: 06/23/17
+ * Time : 00:40 AM
+ *
+ * Footer for every page in this project.
+ */
 ?>
 
 
@@ -24,11 +25,11 @@
 
 </script>
 <!-- Jquery -->
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/jquery.js"></script>
 <!-- Bootstrap js -->
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/bootstrap.js"></script>
 <!-- Custom js -->
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/master.js"></script>
 
 </body>
 </html>

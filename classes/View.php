@@ -1,10 +1,10 @@
 <?php
 /**
-* Created By : Reaper45
-* Date : 23/06/2017
-* Time : 01:17 AM
-*
-*/
+ * Created by Atom.
+ * User: reaper45
+ * Date: 06/23/17
+ * Time : 01:17 AM
+ */
 
 // creating new views
 class View

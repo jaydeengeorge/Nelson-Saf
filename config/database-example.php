@@ -1,15 +1,16 @@
 <?php
 /**
-* Created By : Reaper45
-* Date : 23/06/2017
-* Time : 00:54 AM
-*
-* Local database connection configuration variables
-*
-* Rename this file to database.php
-* Repalce the following varibles with yours
-*
-*/
+ * Created by Atom.
+ * User: reaper45
+ * Date: 06/23/17
+ * Time : 00:54 AM
+ *
+ * Local database connection configuration variables
+ *
+ * Rename this file to database.php
+ * Repalce the following varibles with yours
+ *
+ */
 
 
  define('DB_HOST', '127.0.0.1' );
