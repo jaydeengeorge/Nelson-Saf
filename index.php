@@ -14,6 +14,6 @@ function getView()
 {
   $data['title'] = "Testing View";
   $data['test'] = $_SERVER['REQUEST_URI'];
-  return new View($data,"views/home");
+  return new View($data,"home");
 }
 getView();

@@ -9,9 +9,12 @@
 // creating new views
 class View
 {
+  // View directory name
+  protected $viewdir = "views/";
+
   function __construct($data, $path)
   {
-    require_once "{$path}.php";
+    require_once $this->viewdir."{$path}.php";
   }
 }
 
