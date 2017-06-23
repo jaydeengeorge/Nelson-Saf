@@ -8,9 +8,12 @@
  * Project Entry
  */
 
+ require 'core/init.php';
+// TODO: Implement method in controllers
 function getView()
 {
   $data['title'] = "Testing View";
-  return new View($data,"views/templates/header");
+  $data['test'] = $_SERVER['REQUEST_URI'];
+  return new View($data,"views/home");
 }
 getView();

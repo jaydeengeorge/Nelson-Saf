@@ -11,5 +11,11 @@
  // Application Name ( Feel free to cahnge)
  define('APP_NAME', 'Safaricom' );
 
-// Define base url. Will come in hady when building the front end
+ // Application Name ( Feel free to cahnge)
+ define('APP_AOTHER', 'Reaper45' );
+
+ // Define base url. Mapping folders in the app
  define('BASE_URL', 'http://localhost/Safaricom' );
+
+ // Define site url. Accessing differrent routes int app
+ define('SITE_URL', 'http://localhost/Safaricom/index.php' );

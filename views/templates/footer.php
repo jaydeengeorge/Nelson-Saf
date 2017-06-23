@@ -15,7 +15,7 @@
 
 <!-- Page Footer -->
 <footer>
-    <p class="text-center">&copy; &nbsp;<? echo date(Y); ?> &nbsp; Nelson Otouma.</p>
+    <p class="text-center">&copy; &nbsp;<? echo date(Y)."&nbsp; ".APP_AOTHER." &nbsp;- &nbsp;".APP_NAME; ?> &nbsp;</p>
 </footer>
 <!-- End footer -->
 
@@ -28,6 +28,8 @@
 <script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/jquery.js"></script>
 <!-- Bootstrap js -->
 <script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/bootstrap.min.js"></script>
+<!-- Notify js -->
+<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/notify.js"></script>
 <!-- Custom js -->
 <script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/master.js"></script>
 

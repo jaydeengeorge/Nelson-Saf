@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c >
+    RewriteEngine On
+    RewriteBase /web/ 
+
+    RewriteCondition %{REQUEST_FILENAME} !-f
+    RewriteCondition %{REQUEST_FILENAME} !-d
+
+    RewriteRule ^(.*)$ /$1
+
+</IfModule>
