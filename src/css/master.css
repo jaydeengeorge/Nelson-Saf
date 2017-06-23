@@ -4,3 +4,15 @@
  * Date: 06/23/17
  * Time: 01:53 AM
  */
+
+ body{
+   margin: 0px;
+   padding: 0px;
+ }
+
+ /*Footer*/
+ footer{
+   color: #ccc;
+   width: 100%;
+   border-bottom: solid 3px #0dba40;
+ }
