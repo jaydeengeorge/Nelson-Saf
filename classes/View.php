@@ -5,14 +5,14 @@
  * Date: 06/23/17
  * Time : 01:17 AM
  */
+ // namespace classes;
 
-// creating new views
 class View
 {
   // View directory name
   protected $viewdir = "views/";
 
-  function __construct($data, $path)
+  function __construct($path, $data = null)
   {
     require_once $this->viewdir."{$path}.php";
   }

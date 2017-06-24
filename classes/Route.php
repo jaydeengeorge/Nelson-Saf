@@ -5,6 +5,8 @@
  * Date: 06/24/17
  * Time : 18:17 AM
  */
+ // namespace classes;
+
 
  class Route
  {
@@ -22,7 +24,16 @@
    // Register post routes
    public static function get($path, $action)
    {
-     self::$_get["{$path}"] = $action;
+     if ($path == '/') {
+       self::$_get["{$path}"] = $action;
+     }else {
+       // Remove trailling slashes
+       $path = trim($path, '/');
+       // Manually add a slash at the begining
+       $path = '/'.$path;
+
+       self::$_get["{$path}"] = $action;
+     }
      return $this;
    }
 
@@ -36,15 +47,15 @@
    public static function auth()
    {
      // Login Route
-     self::$_get['login'] = 'LoginController@auhenticate';
+     self::$_get['/login'] = 'Login_Controller@authenticate';
 
      // Register Routes
-     self::$_get['register'] = 'RegisterController@create';
+     self::$_get['/register'] = 'Register_Controller@create';
 
      return $this;
    }
 
-   public function all($method)
+   public function getAll($method)
    {
      if ($method == "get") {
        return self::$_get;
