@@ -9,11 +9,23 @@
  */
 
  require 'core/init.php';
-// TODO: Implement method in controllers
-function getView()
-{
-  $data['title'] = "Testing View";
-  $data['test'] = $_SERVER['REQUEST_URI'];
-  return new View($data,"home");
-}
-getView();
+
+ // Accesed path in browser
+ $uri = $_SERVER['PATH_INFO'];
+
+ // Request method GET/POST
+ $method = $_SERVER['REQUEST_METHOD'];
+
+ // Query string f exists
+ $query_str = $_SERVER['QUERY_STRING"'];
+
+
+ // Controller::call($uri)
+ function getView()
+ {
+   $data['title'] = "Testing View";
+   $data['test'] = $_SERVER['PATH_INFO'];
+   $data['content'] = $_SERVER;
+   return new View("home", $data);
+ }
+ getView();
