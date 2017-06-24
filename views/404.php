@@ -3,7 +3,7 @@
  * Created by Atom.
  * User: reaper45
  * Date: 06/23/17
- * Time : 02:29 AM
+ * Time : 20:59 PM
  *
  */
  // Page Header
@@ -17,6 +17,10 @@
  <h3>Page Not Found!</h3>
 
  <?
+
+ echo "<h4>".$data['url']."</h4>";
+ var_dump($data['content']);
+
 
  // page Footer
  require_once "templates/footer.php";

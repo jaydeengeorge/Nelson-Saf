@@ -11,7 +11,6 @@
 
  // Page content
 
- echo "<h1>".$data['test']."</h1>";
 
  // page Footer
  require_once "templates/footer.php";

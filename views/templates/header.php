@@ -38,7 +38,7 @@
           <!-- Toggle Navigation -->
 
           <!-- App brand -->
-          <a href="<? echo BASE_URL; ?>" class="navbar-brand">
+          <a href="<? echo SITE_URL; ?>" class="navbar-brand">
             <? echo APP_NAME;?>
           </a>
           <!-- Brand -->
@@ -47,8 +47,8 @@
         <div id="app-navbar-collapse" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">&nbsp;</ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<? echo BASE_URL;?>/login">Login</a></li>
-            <li><a href="<? echo BASE_URL;?>/register">Register</a></li>
+            <li><a href="<? echo SITE_URL;?>/login">Login</a></li>
+            <li><a href="<? echo SITE_URL;?>/register">Register</a></li>
           </ul>
         </div>
       </div>
