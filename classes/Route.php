@@ -19,15 +19,29 @@
      # code...
    }
 
+   // Register post routes
    public static function get($path, $action)
    {
      self::$_get["{$path}"] = $action;
      return $this;
    }
 
+   // Register post routes
    public static function post($value='')
    {
      # code...
+   }
+
+   // Register authentication routes
+   public static function auth()
+   {
+     // Login Route
+     self::$_get['login'] = 'LoginController@auhenticate';
+
+     // Register Routes
+     self::$_get['register'] = 'RegisterController@create';
+
+     return $this;
    }
 
    public function all($method)
