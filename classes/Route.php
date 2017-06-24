@@ -29,4 +29,13 @@
    {
      # code...
    }
+
+   public function all($method)
+   {
+     if ($method == "get") {
+       return self::$_get;
+     }elseif ( $method == "post") {
+       return self::$_post;
+     }
+   }
  }
