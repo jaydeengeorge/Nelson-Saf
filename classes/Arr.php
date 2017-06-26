@@ -14,9 +14,9 @@ class Arr
     *
     * Returns the whole array
     */
-    // public function __construct()
+    // public function __construct($value)
     // {
-    //   $this->_arr = array();
+    //   $this->push($this->_arr, $value);
     // }
 
     public function push($arr, $value)

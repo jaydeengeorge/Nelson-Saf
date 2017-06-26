@@ -47,8 +47,8 @@
         <div id="app-navbar-collapse" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">&nbsp;</ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<? echo SITE_URL;?>/login">Login</a></li>
-            <li><a href="<? echo SITE_URL;?>/register">Register</a></li>
+            <!-- <li><a href="<? echo SITE_URL;?>/login">Launch Com</a></li> -->
+            <li><a href="<? echo SITE_URL;?>/register">FeedBack</a></li>
           </ul>
         </div>
       </div>

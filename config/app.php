@@ -9,13 +9,13 @@
  // Database connection configuration variables
 
  // Application Name ( Feel free to cahnge)
- define('APP_NAME', 'Boiler-Plate-v2' );
+ define('APP_NAME', 'Safaricom' );
 
  // Application Name ( Feel free to cahnge)
  define('APP_AUTHOR', 'Reaper45' );
 
  // Define base url. Mapping folders in the app
- define('BASE_URL', 'http://localhost/Open/Boiler-Plate-v2' );
+ define('BASE_URL', 'http://localhost/Safaricom' );
 
  // Define site url. Accessing differrent routes int app
- define('SITE_URL', 'http://localhost/Open/Boiler-Plate-v2/index.php' );
+ define('SITE_URL', 'http://localhost/Safaricom/index.php' );

@@ -5,7 +5,9 @@
  * Date: 06/23/17
  * Time: 01:43 AM
  */
-session_start();
+if (!session_id()) {
+  session_start();
+}
 
 // Loading configuration
 require_once 'config/app.php';

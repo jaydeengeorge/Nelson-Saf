@@ -35,3 +35,9 @@
 
 </body>
 </html>
+<?
+if (Session::has('errors')) {
+  Session::forget('errors');
+}
+
+?>

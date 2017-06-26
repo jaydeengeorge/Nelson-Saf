@@ -42,7 +42,7 @@
      if ($validator->fails()) {
        $errors = $validator->errors();
 
-       Session::put('errors', $errors);
+       Session::putErrors($errors);
        return Redirect::back();
      }
      // Find user with email

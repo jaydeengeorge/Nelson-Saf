@@ -13,6 +13,9 @@
 
 class Session
 {
+  public $_flashed = [];
+
+  public static $_instance;
     /**
      * Check if a session is set for given var
      *
@@ -72,11 +75,24 @@ class Session
         }
     }
 
-    /**
-     *
-     */
-    public static function flash()
+    // Set a session maintained for one request
+    public static function putErrors($value)
     {
-        // Set a session maintained for one request
+      self::put('errors',  $value);
+    }
+
+    public static function flush()
+    {
+      if (session_id()) {
+        # code...
+      }
+    }
+
+    public static function getInstance()
+    {
+      if (!self::$_instance) {
+        self::$_instance = new Session;
+      }
+      return self::$_instance;
     }
 }
