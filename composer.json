@@ -1,0 +1,13 @@
+{
+    "name": "reaper45/safaricom",
+    "description": "School Work",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Reaper45",
+            "email": "jomwashighadi@gmail.com"
+        }
+    ],
+    "require": {}
+}
