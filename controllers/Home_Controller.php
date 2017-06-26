@@ -24,7 +24,7 @@ class Home_Controller extends Controller
     if (Session::has('user')) {
       return new View('home', $data);
     }
-    return new View('home', $data);
+    return new View('welcome', $data);
   }
 
 }

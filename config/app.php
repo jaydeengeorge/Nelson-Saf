@@ -9,7 +9,7 @@
  // Database connection configuration variables
 
  // Application Name ( Feel free to cahnge)
- define('APP_NAME', 'Safaricom' );
+ define('APP_NAME', 'Nelson-School' );
 
  // Application Name ( Feel free to cahnge)
  define('APP_AUTHOR', 'Reaper45' );

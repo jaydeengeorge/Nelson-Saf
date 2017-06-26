@@ -26,7 +26,7 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-default">
-      <div class="container">
+      <div class="container" style="margin-top: 8px;">
         <div class="navbar-header">
           <!-- Toggle Navigation -->
           <button type="button" data-toggle="collapse" data-target="#app-navbar-collapse" class="navbar-toggle collapsed">
@@ -47,8 +47,8 @@
         <div id="app-navbar-collapse" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">&nbsp;</ul>
           <ul class="nav navbar-nav navbar-right">
-            <!-- <li><a href="<? echo SITE_URL;?>/login">Launch Com</a></li> -->
-            <li><a href="<? echo SITE_URL;?>/register">FeedBack</a></li>
+            <li style="margin-right: 10px"><a href="#">FAQ</a></li>
+            <li class="action-btn"><a href="<? echo SITE_URL;?>/feedback">Your   FeedBack</a></li>
           </ul>
         </div>
       </div>
@@ -56,4 +56,4 @@
     <!-- Navigation End -->
 
     <!-- Container -->
-    <div class="container" style="min-height: 500px;">
+    <!-- <div class="container" style="min-height: 500px;"> -->
