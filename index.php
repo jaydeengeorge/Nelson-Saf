@@ -19,13 +19,15 @@
  $uri = $_SERVER['PATH_INFO'];
 
  // Request method GET/POST
- $method = $_SERVER['REQUEST_METHOD'];
+ $request_method = $_SERVER['REQUEST_METHOD'];
 
  // Query string f exists
  $query_str = $_SERVER['QUERY_STRING"'];
 
  // Get all registered GET routes
- $routes = Route::getAll('get');
+ $routes = Route::getAll($request_method);
+
+ Session::setpreviousUrl($uri);
 
  // Mnually add a slash at the begining
  // $uri = '/'.$uri;
@@ -40,8 +42,7 @@
 
  if (!array_key_exists($uri, $routes)) {
    $data['title'] = "Not Found";
-   $data['url'] = $uri;
-   $data['content'] =  $routes;
+   $data['error'] = "Route {$uri} Not Found";
 
    return new View('404', $data);
  }else {

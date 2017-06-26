@@ -17,6 +17,7 @@
 
    public function __call($method, $parameters)
    {
-     return new Exeption("Trying to access undefined method {$method}");
+     $data['error'] = "Trying to access undefined method {$method}";
+     return new View('404', $data);
    }
  }

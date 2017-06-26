@@ -40,26 +40,44 @@
    // Register post routes
    public static function post($value='')
    {
-     # code...
+     if ($path == '/') {
+       self::$_post["{$path}"] = $action;
+     }else {
+       // Remove trailling slashes
+       $path = trim($path, '/');
+       // Manually add a slash at the begining
+       $path = '/'.$path;
+
+       self::$_post["{$path}"] = $action;
+     }
+     return $this;
    }
 
    // Register authentication routes
    public static function auth()
    {
-     // Login Route
-     self::$_get['/login'] = 'Login_Controller@authenticate';
+     // Login View
+     self::$_get['/login'] = 'Login_Controller@index';
 
-     // Register Routes
-     self::$_get['/register'] = 'Register_Controller@create';
+     // Submitting Login Form-data
+     self::$_post['/login'] = 'Login_Controller@authenticate';
+
+     // Register View
+     self::$_get['/register'] = 'Register_Controller@index';
+
+     // Submitting Register Form-data
+     self::$_post['/register'] = 'Register_Controller@register';
 
      return $this;
    }
 
+   // Retrieve all registered routes
    public function getAll($method)
    {
-     if ($method == "get") {
+     if ($method == "GET") {
        return self::$_get;
-     }elseif ( $method == "post") {
+     }
+     elseif ( $method == "POST") {
        return self::$_post;
      }
    }

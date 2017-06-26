@@ -14,6 +14,9 @@ class View
 
   function __construct($path, $data = null)
   {
+    if (strchr($path, '.')) {
+      $path = str_replace('.', '/', $path);
+    }
     require_once $this->viewdir."{$path}.php";
   }
 }

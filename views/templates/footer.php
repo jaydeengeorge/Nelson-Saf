@@ -15,7 +15,7 @@
 
 <!-- Page Footer -->
 <footer>
-    <p class="text-center">&copy; &nbsp;<? echo date(Y)."&nbsp; ".APP_AOTHER." &nbsp;- &nbsp;".APP_NAME; ?> &nbsp;</p>
+    <p class="text-center">&copy; &nbsp;<? echo date(Y)."&nbsp; ".APP_AUTHOR." &nbsp;- &nbsp;".APP_NAME; ?> &nbsp;</p>
 </footer>
 <!-- End footer -->
 
@@ -25,13 +25,13 @@
 
 </script>
 <!-- Jquery -->
-<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/jquery.js"></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/jquery.js"></script>
 <!-- Bootstrap js -->
-<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/bootstrap.min.js"></script>
 <!-- Notify js -->
-<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/notify.js"></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/notify.js"></script>
 <!-- Custom js -->
-<script type="text/javascript" src="<? echo BASE_URL; ?>/src/js/master.js"></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/master.js"></script>
 
 </body>
 </html>

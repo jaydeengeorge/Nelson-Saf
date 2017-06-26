@@ -19,11 +19,12 @@ class Home_Controller extends Controller
   // Loading the home view
   public function index()
   {
-    $data['title'] = "Testing View";
-    $data['test'] = $_SERVER['PATH_INFO'];
-    $data['content'] =  $routes = Route::getAll('get');
+    $data['title'] = "Home";
 
-    return new View("home", $data);
+    if (Session::has('user')) {
+      return new View('home', $data);
+    }
+    return new View('home', $data);
   }
 
 }

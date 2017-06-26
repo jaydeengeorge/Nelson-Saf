@@ -15,12 +15,12 @@
     <title> <? echo APP_NAME." | ".$data['title']; ?> </title>
 
     <!-- Css links -->
-    <link rel="stylesheet" href="<? echo BASE_URL;?>/src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<? echo BASE_URL;?>/src/css/master.css">
+    <link rel="stylesheet" href="<? echo BASE_URL;?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<? echo BASE_URL;?>/assets/css/master.css">
     <!-- Fonts -->
-    <link rel="stylesheet" href="<? echo BASE_URL;?>/src/fonts">
+    <link rel="stylesheet" href="<? echo BASE_URL;?>/assets/fonts">
     <!-- Icons -->
-    <link rel="stylesheet" href="<? echo BASE_URL;?>/src/css/">
+    <link rel="stylesheet" href="<? echo BASE_URL;?>/assets/css/">
 
 </head>
 <body>
