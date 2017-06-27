@@ -14,4 +14,7 @@ Route::auth();
 Route::get('/', 'Home_Controller@index');
 
 // Users account
-Route::get('/user/account', 'User_Controller@getLogin');
+Route::get('/user/account', 'User_Controller@getUserAccount');
+
+// Submit a complain
+Route::post('/complain', 'User_Controller@launchComplain');

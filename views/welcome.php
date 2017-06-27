@@ -8,6 +8,18 @@
  */
  // Page Header
  require_once "templates/header.php";
+ require_once "messages/errors.php";
+
+ $errors = Session::get('errors');
+
+ $errors = json_encode($errors);
+
+ // var_dump($errors); exit();
+
+ // foreach (Session::get('errors') as $key => $value) {
+
+  //  }
+
 ?>
 
 <!-- Page content -->
@@ -36,12 +48,12 @@
 
           <div class="form-group">
             <label class="control-label" for="id_no">ID NO: </label><span class="required">*</span>
-            <input class="form-control" type="text" name="id_no" id="id_no" placeholder="Your ID card NO." required>
+            <input class="form-control" type="text" name="id_no" id="id_no" placeholder="Your ID card NO." >
           </div>
 
           <div class="form-group">
             <label class="control-label" for="name">Full Name: </label><span class="required">*</span>
-            <input class="form-control" type="text" name="name" id="name" placeholder="Full names as in your ID Card." required>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Full names as in your ID Card." >
           </div>
 
           <div class="form-group">
@@ -51,13 +63,13 @@
 
           <div class="form-group">
             <label class="control-label" for="description">Complain Description: </label><span class="required">*</span>
-            <textarea class="form-control" type="text" name="description" id="description" placeholder="Describe your complain briefly" required></textarea>
+            <textarea class="form-control" type="text" name="description" id="description" placeholder="Describe your complain briefly" ></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" form="complain-form" name="register">Submit Complain</button>
+        <button type="submit" class="btn btn-primary" form="complain-form" name="register">Submit Complain</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -65,4 +77,12 @@
  <!-- page Footer -->
  <?
  require_once "templates/footer.php";
+
+ $errors = json_encode(Session::get('errors'));
+ // foreach ($errors as $key => $value) {
+   echo "<script type='text/javascript'>
+    $.notify({$errors[1]}, 'error');
+    </script>";
+ // }
+
 ?>

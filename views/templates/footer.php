@@ -29,15 +29,15 @@
 <!-- Bootstrap js -->
 <script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/bootstrap.min.js"></script>
 <!-- Notify js -->
-<script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/notify.js"></script>
+<script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/notify.min.js"></script>
 <!-- Custom js -->
 <script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/master.js"></script>
 
 </body>
 </html>
 <?
-if (Session::has('errors')) {
-  Session::forget('errors');
-}
+// if (Session::has('errors')) {
+//   Session::forget('errors');
+// }
 
 ?>
