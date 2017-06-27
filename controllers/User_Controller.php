@@ -35,9 +35,9 @@
      if ($validator->fails()) {
        $errors = $validator->errors();
 
-      // return new Response($errors, 422);
-      header('Content-type: application/json');
-      echo json_encode($errors);
+      return Response::json($errors, 422);
+      // header('Content-type: application/json');
+      // echo json_encode($errors);
       exit();
      }
    }
