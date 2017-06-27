@@ -11,6 +11,12 @@
 
  Interface Model
  {
+   // Save new model
+   public function save();
+
+   // Update new model
+  //  public function update();
+
    // Find record by primary key
    public static function find($id);
 
@@ -19,5 +25,6 @@
  }
 
  /*
- * The interface is so not complete
+ * The interface is so not complete: save, update, delete etc
+ * Well, came to realise complains cant be update (Just doesn't make sence)
  */
