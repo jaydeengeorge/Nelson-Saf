@@ -1,4 +1,4 @@
-odel_<?php
+<?php
 
 /**
  * Created by PhpStorm.
@@ -10,16 +10,39 @@ odel_<?php
  */
  // use Contracts\Model;
 
-class odel_User implements Model
+class User_Model implements Model
 {
   public static $table = 'users';
   public static $primary_key = 'id';
 
   public $id;
-  public $f_name;
-  public $l_name;
-  public $email;
+  public $id_no;
+  public $name;
+  public $email = null;
   public $phone = '0700000000';
+
+  public $errors;
+
+  // Create New user
+  public function save()
+  {
+    // Check if user exists
+    $user_exists = self::where(['email', $this->email]);
+    if(!$user_exists){
+      $db = DB::getInstance();
+      // Create a new user
+      if($db->table(self::$table)->insert($this)){
+        return $db->_results;
+      }
+      $this->errors = $db->_errors;
+      return false;
+    }
+    // Return the user if already exists
+    return $user_exists;
+  }
+
+  // Update User
+  public function update(){}
 
   // Find user by id (primary_key)
   public static function find($id)
@@ -37,26 +60,9 @@ class odel_User implements Model
     if ($db->_results) {
       return $db->_results;
     }
-    Session::put('errors', $db->_errors);
     return false;
   }
 
-  // Create New user
-  public static function create(User $user)
-  {
-    if(!self::where(['email', $user->email])){
-      $db = DB::getInstance();
-
-      if($db->table(self::$table)->insert($user)){
-        return self::login($user);
-      }
-      Session::put('errors', $db->_errors);
-      return Redirect::back();
-    }
-    $errors = ['error' => 'Email already taken!'];
-    Session::put('errors', $errors);
-    return Redirect::back();
-  }
 
   // Login a user
   public static function login($user)
@@ -70,27 +76,4 @@ class odel_User implements Model
     Session::put('errors', $errors);
     return Redirect::back();
   }
-
-  public static function update()
-  {
-
-  }
-
-
-  /**
-   * @return mixed
-   */
-  public function id()
-  {
-      return $this->id;
-  }
-
-  /**
-   * @return mixed
-   */
-  public function name()
-  {
-      return $this->name;
-  }
-
 }
