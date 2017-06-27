@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: reaper45
@@ -36,8 +35,7 @@ class Redirect
             switch ($where) {
                 case 404:
                     header('HTTP/1.0 404 Not Found'); // To be replaced with route
-                    // include a 404 page here
-//                    exit();
+
                     break;
             }
         }
@@ -50,8 +48,7 @@ class Redirect
       if (Session::has('previousUrl')) {
         $previous = Session::get('previousUrl');
       }
-      header('Location: '.SITE_URL.$previous); // To be replaced with route
-//        exit();
+      header('Location: '.$previous); // To be replaced with route
     }
 
     public function intended($where = null)
@@ -66,9 +63,6 @@ class Redirect
         self::to($this->next);
     }
 
-    /**
-     * @return mixed
-     */
     public function getPrevious()
     {
       if (Session::has('previousUrl')) {

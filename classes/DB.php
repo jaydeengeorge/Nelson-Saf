@@ -96,18 +96,15 @@ class DB
           $this->prepare($ation, $data);
 
           // Execute query (lastInsertId())
-          return $this->_results = $this->_sth->execute((array)$data);
+          $this->_sth->execute((array)$data);
+
+          // Return last insert id by the connection
+          return $this->_pdo->lastInsertId();
       }
       catch (PDOException $e) {
           $this->_errors = $e->getMessage();
       }
       return false;
-  }
-
-  // Update table column
-  public function update($table, $data)
-  {
-    # code...
   }
 
   // Select data form the db
@@ -124,12 +121,6 @@ class DB
       }
 
       return $this;
-  }
-
-  // Delete data from the db
-  public function delete()
-  {
-    return $this;
   }
 
   // Where claause
@@ -157,15 +148,8 @@ class DB
   // Run query
   public function get()
   {
-    // $this->_queryString = $this->_pdo->quote($this->_queryString);
     $this->_sth = $this->_pdo->query($this->_queryString);
 
-    // Setting fetch mode
-    //  if ($this->fetch_mode) {
-    //    $this->_sth->setFetchMode($this->fetch_mode);
-    //  }else {
-    //    $this->_sth->setFetchMode(PDO::FETCH_ASSOC);
-    //  }
     $this->_sth->setFetchMode(PDO::FETCH_OBJ);
 
     try {
@@ -179,16 +163,17 @@ class DB
     return $this;
   }
 
-  // Setting fetch mode
-  // public function setFetchMode($mode = null, $model = null)
-  // {
-  //   if ($mode) {
-  //     $this->fetch_mode = $mode;
-  //     $this->model = $model;
-  //   }
-  //
-  //   return $this;
-  // }
+  // Delete data from the db
+  public function delete()
+  {
+    return $this;
+  }
+
+  // Update table column
+  public function update($table, $data)
+  {
+    # code...
+  }
 
   public function errors()
   {

@@ -38,7 +38,7 @@
    }
 
    // Register post routes
-   public static function post($value='')
+   public static function post($path, $action)
    {
      if ($path == '/') {
        self::$_post["{$path}"] = $action;
