@@ -13,15 +13,17 @@ if (!session_id()) {
 require_once 'config/app.php';
 require_once 'config/database.php';
 
-// Dynamically loading classes
+// Dynamically load helper classes
 spl_autoload_register(function ($class){
   if (strchr($class, '_')){
     $split = explode('_', $class);
 
-    // Load class from controllers dir
     if ($split[1] == 'Controller') {
-     require_once 'controllers/'.$class.'.php';
-   }
+      require_once 'controllers/'.$class.'.php'; // Load controllers
+    }
+    elseif ($split[1] == 'Model') {
+      require_once 'models/'.$class.'.php'; // Load models
+    }
   }else{
     // Load class from classes dir
     require_once 'classes/'.$class.'.php';

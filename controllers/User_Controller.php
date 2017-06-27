@@ -35,8 +35,10 @@
      if ($validator->fails()) {
        $errors = $validator->errors();
 
-       Session::put('errors', $errors);
-       return Redirect::back();
+      // return new Response($errors, 422);
+      header('Content-type: application/json');
+      echo json_encode($errors);
+      exit();
      }
    }
  }

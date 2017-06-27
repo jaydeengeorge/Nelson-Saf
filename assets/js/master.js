@@ -4,7 +4,6 @@
  * Date: 06/23/17
  * Time: 01:52 AM
  */
-console.log('we here');
 
 function submitComplain(formdata, url, method) {
   $.ajax({
@@ -16,10 +15,10 @@ function submitComplain(formdata, url, method) {
     processData: false,
   })
   .done(function(data){
-    console.log(data);
-  })
-  .fails(function(err){
-    console.log(err);
+    for (var i = 0; i < data.length; i++) {
+      // console.log();
+      $.notify(data[i], "error");
+    }
   })
 }
 
