@@ -15,4 +15,28 @@
    {
      parent::__construct($metod);
    }
+
+   public function launchComplain()
+   {
+     // Get form data
+     $formdata = Input::all();
+
+     // Validate Input data
+     $validator = new Validator;
+
+     $validate = $validator->make($formdata,[
+       'id_no'=>'required|min:10',
+       'name'=>'required',
+       'email'=>'required|email',
+       'description'=>'required|max:160'
+     ]);
+
+     // If errors exists redirect back
+     if ($validator->fails()) {
+       $errors = $validator->errors();
+
+       Session::put('errors', $errors);
+       return Redirect::back();
+     }
+   }
  }

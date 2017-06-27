@@ -46,10 +46,10 @@
        return Redirect::back();
      }
      // Find user with email
-     $user = User::where(['email', $formdata['email']]);
+     $user = Model_User::where(['email', $formdata['email']]);
 
      if ($user) {
-       return User::login($user);
+       return Model_User::login($user);
 
        $data['title'] = 'Dashboard';
        Session::put('user', $formdata);
