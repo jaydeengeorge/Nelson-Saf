@@ -28,7 +28,7 @@ class User_Model implements Model
   public function save()
   {
     // Check if user exists
-    $user_exists = self::where(['email', $this->email]);
+    $user_exists = self::where(['id_no', $this->id_no]);
     if(!$user_exists){
       $db = DB::getInstance();
       // Create a new user
