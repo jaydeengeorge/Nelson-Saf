@@ -52,6 +52,11 @@
           </div>
 
           <div class="form-group">
+            <label class="control-label" for="phone">Phone: </label><span class="required">*</span>
+            <input class="form-control" type="number" min="0" name="phone" id="phone" placeholder="Your phone Number.">
+          </div>
+
+          <div class="form-group">
             <label class="control-label" for="name">Full Name: </label><span class="required">*</span>
             <input class="form-control" type="text" name="name" id="name" placeholder="Full names as in your ID Card." >
           </div>
