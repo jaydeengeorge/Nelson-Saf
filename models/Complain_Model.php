@@ -11,6 +11,7 @@
  {
    public static $table = 'complains';
    public static $primary_key = 'id';
+   public static $errors = array();
 
    // Complain id(key)
    public $id;
@@ -27,14 +28,13 @@
    // Save new Complain
    public function save()
    {
-     $db = new DB::getInstance();
+     $db = DB::getInstance();
 
      if($db->table(self::$table)->insert($this)){
        return $db->_results;
      }
-     $this->$errors = $db->_errors;
-     return false;
-   }
+     self::$errors = Arr::push(self::$errors, $db->_errors);
+     return $this;
    }
 
    // Find Complain by primary key

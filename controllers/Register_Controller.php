@@ -48,13 +48,13 @@
        return Redirect::back();
      }
 
-     $user = new Model_User;
+     $user = new User_Model;
 
      $user->f_name   = $formdata['f_name'];
      $user->l_name   = $formdata['l_name'];
      $user->email    = $formdata['email'];
      $user->password = Hash::password(Input::post('password'));
 
-     return Model_User::create($user);
+     return User_Model::create($user);
    }
  }

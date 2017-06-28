@@ -19,18 +19,21 @@
  // Include status code in responses
  class Response
  {
+
    // New Response
-   function __construct($message, $status_code)
+   function __construct($message, $response_code)
    {
-    //  header('Content-type: application/json');
+     //  header('Content-type: application/json');
+     http_response_code($response_code);
      echo json_encode($message);
      exit();
    }
 
    // Return Json response
-   public static function json($message, $status_code)
+   public static function json($message, $response_code)
    {
      header('Content-type: application/json');
+     http_response_code($response_code);
      echo json_encode($message);
      exit();
    }

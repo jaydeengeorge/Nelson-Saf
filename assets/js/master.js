@@ -13,11 +13,18 @@ function submitComplain(formdata, url, method) {
     cache: false,
     contentType: false,
     processData: false,
-  })
-  .done(function(data){
-    for (var i = 0; i < data.length; i++) {
-      // console.log();
-      $.notify(data[i], "error");
+    statusCode: {
+      200: function (data) {
+        $.notify(data.responseJSON, "success");
+      },
+      422: function (errors) {
+        $.each(errors.responseJSON, function(key, value) {
+          $.notify(value, "error");
+        })
+      },
+      500: function (err){
+        $.notify(err.responseJSON, "error");
+      },
     }
   })
 }

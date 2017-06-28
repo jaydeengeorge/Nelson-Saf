@@ -14,14 +14,15 @@ class User_Model implements Model
 {
   public static $table = 'users';
   public static $primary_key = 'id';
+  public static $errors = array();
 
   public $id;
   public $id_no;
   public $name;
   public $email = null;
-  public $phone = '0700000000';
+  public $phone;
 
-  public $errors;
+  public $secret;
 
   // Create New user
   public function save()
@@ -34,7 +35,7 @@ class User_Model implements Model
       if($db->table(self::$table)->insert($this)){
         return $db->_results;
       }
-      $this->errors = $db->_errors;
+      Session::putErrors(Arr::push('db_errors', $db->_errors));
       return false;
     }
     // Return the user if already exists
@@ -63,7 +64,11 @@ class User_Model implements Model
     return false;
   }
 
-
+  // Send secret to user
+  public function sendSecret()
+  {
+    # code...
+  }
   // Login a user
   public static function login($user)
   {
@@ -76,4 +81,10 @@ class User_Model implements Model
     Session::put('errors', $errors);
     return Redirect::back();
   }
+
+  // Filters properties. Only defined will be set
+  // public function __set()
+  // {
+  //   # code...
+  // }
 }
