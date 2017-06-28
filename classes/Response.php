@@ -15,7 +15,8 @@
  | ....eg stsus code, headers etc
  |
  */
-
+ // TODO:
+ // Include status code in responses
  class Response
  {
    // New Response

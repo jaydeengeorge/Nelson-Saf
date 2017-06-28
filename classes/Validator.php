@@ -96,7 +96,7 @@ class Validator
     public function max($key, $num)
     {
         if(strlen($this->data[$key]) > $num){
-            $error = "The field {$key} may not be greater than {$num}.";
+            $error = "The field {$key} may not be greater than {$key}.";
             $this->errors = Arr::push($this->errors, $error);
             return false;
         }
