@@ -15,7 +15,7 @@ function submitComplain(formdata, url, method) {
     processData: false,
     statusCode: {
       200: function (data) {
-        $.notify(data.responseJSON, "success");
+        $.notify(data, "success");
       },
       422: function (errors) {
         $.each(errors.responseJSON, function(key, value) {
