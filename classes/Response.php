@@ -6,15 +6,7 @@
  *
  * Lincence: [MIT license]
  */
- /*
- |--------------------------------------------------------------------------
- | Class Response
- |--------------------------------------------------------------------------
- |
- | Customizing http responses return by the app.
- | ....eg stsus code, headers etc
- |
- */
+
  namespace classes;
 
  class Response

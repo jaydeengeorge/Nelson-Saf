@@ -16,9 +16,12 @@ function submitForm(formdata, url, method) {
     statusCode: {
       200: function (data) {
         $.notify(data, "success");
+        setTimeout(function (errors) {
+          window.location.reload();
+        }, 2000)
       },
       404: function (errors) {
-          $.notify('Error: 404! Not Found!', "error");
+        $.notify('Error: 404! Not Found!', "error");
       },
       422: function (errors) {
         $.each(errors.responseJSON, function(key, value) {
@@ -27,6 +30,9 @@ function submitForm(formdata, url, method) {
       },
       500: function (err){
         $.notify(err.responseJSON, "error");
+        setTimeout(function () {
+          window.location.reload();
+        }, 1000)
       },
     }
   })
@@ -39,5 +45,5 @@ $('#complain-form').submit(function(e) {
   var formdata = new FormData(this)
   var complainUrl = $(this).attr('action')
 
-  submitForm(formdata, complainUrl)
+  submitForm(formdata, complainUrl);
 })
