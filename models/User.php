@@ -8,10 +8,15 @@
  *
  * Lincence: [MIT license]
  */
- // use Contracts\Model;
+  namespace models;
 
-class User_Model implements Model
-{
+  use classes\DB;
+  use classes\Hash;
+  use classes\Input;
+  use classes\Session;
+
+  class User implements Model
+  {
   public static $table = 'users';
   public static $primary_key = 'id';
   public static $errors = array();
@@ -75,11 +80,11 @@ class User_Model implements Model
     $password = Hash::password(Input::post('password'));
     // var_dump($password."\n".$user->password);exit();
     if ($user->password == $password) {
-      return Redirect::to('/');
+      return true;
     }
     $errors = ['error' => 'Invalid Email Password Combination!'];
     Session::put('errors', $errors);
-    return Redirect::back();
+    return false;
   }
 
   // Filters properties. Only defined will be set
@@ -87,4 +92,4 @@ class User_Model implements Model
   // {
   //   # code...
   // }
-}
+  }

@@ -6,9 +6,12 @@
  * Time : 20:25 PM
  *
  */
-// namespace controllers;
+namespace controllers;
 
-class Home_Controller extends Controller
+use classes\View;
+use classes\Session;
+
+class HomeController extends Controller
 {
   // Implemet parent contructor
   function __construct($method)
@@ -21,10 +24,9 @@ class Home_Controller extends Controller
   {
     $data['title'] = "Home";
 
-    if (Session::has('user')) {
-      return new View('home', $data);
-    }
+    // if (Session::has('user')) {
+    //   return new View('home', $data);
+    // }
     return new View('welcome', $data);
   }
-
 }

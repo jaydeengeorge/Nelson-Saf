@@ -16,8 +16,8 @@
      <h4>Dashboard</h4>
    </div>
    <div class="panel-body">
-     <? $user = Session::get('user'); ?>
-     You are logged in as <? var_dump(Session::get('previousUrl')); ?>
+     <? $user = classes\Session::get('user'); ?>
+     You are logged in as <? var_dump(classes\Session::get('previousUrl')); ?>
    </div>
  </div>
 

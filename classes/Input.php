@@ -6,7 +6,7 @@
  * Time : 04:17 AM
  *
  */
-
+ namespace classes;
 
  class Input
  {

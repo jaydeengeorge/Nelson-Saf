@@ -8,8 +8,13 @@
  *
  * Lincence: [MIT license]
  */
-class DB
-{
+  namespace classes;
+
+  use PDO;
+  use PDOException;
+
+  class DB
+  {
     // Class instance
     private static $_db;
 
@@ -34,9 +39,9 @@ class DB
     // public $_where;
     public $_queryString;
 
+
   public function __construct()
   {
-
     $dbname = DB_NAME;
     $user   = DB_USER;
     $pass   = DB_PASS;
@@ -96,15 +101,18 @@ class DB
           $this->prepare($ation, $data);
 
           // Execute query (lastInsertId())
-          $this->_sth->execute((array)$data);
-
-          // Return last insert id by the connection
-          return $this->_pdo->lastInsertId();
+          return $this->_results = $this->_sth->execute((array)$data);
       }
       catch (PDOException $e) {
           $this->_errors = $e->getMessage();
       }
       return false;
+  }
+
+  // Update table column
+  public function update($table, $data)
+  {
+    # code...
   }
 
   // Select data form the db
@@ -121,6 +129,12 @@ class DB
       }
 
       return $this;
+  }
+
+  // Delete data from the db
+  public function delete()
+  {
+    return $this;
   }
 
   // Where claause
@@ -148,8 +162,15 @@ class DB
   // Run query
   public function get()
   {
+    // $this->_queryString = $this->_pdo->quote($this->_queryString);
     $this->_sth = $this->_pdo->query($this->_queryString);
 
+    // Setting fetch mode
+    //  if ($this->fetch_mode) {
+    //    $this->_sth->setFetchMode($this->fetch_mode);
+    //  }else {
+    //    $this->_sth->setFetchMode(PDO::FETCH_ASSOC);
+    //  }
     $this->_sth->setFetchMode(PDO::FETCH_OBJ);
 
     try {
@@ -163,17 +184,16 @@ class DB
     return $this;
   }
 
-  // Delete data from the db
-  public function delete()
-  {
-    return $this;
-  }
-
-  // Update table column
-  public function update($table, $data)
-  {
-    # code...
-  }
+  // Setting fetch mode
+  // public function setFetchMode($mode = null, $model = null)
+  // {
+  //   if ($mode) {
+  //     $this->fetch_mode = $mode;
+  //     $this->model = $model;
+  //   }
+  //
+  //   return $this;
+  // }
 
   public function errors()
   {
@@ -184,4 +204,4 @@ class DB
   {
       return $this->_results;
   }
-}
+  }

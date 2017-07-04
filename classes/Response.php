@@ -15,8 +15,8 @@
  | ....eg stsus code, headers etc
  |
  */
- // TODO:
- // Include status code in responses
+ namespace classes;
+
  class Response
  {
 

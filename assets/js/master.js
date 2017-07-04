@@ -5,7 +5,7 @@
  * Time: 01:52 AM
  */
 
-function submitComplain(formdata, url, method) {
+function submitForm(formdata, url, method) {
   $.ajax({
     method: 'POST',
     url: url,
@@ -16,6 +16,9 @@ function submitComplain(formdata, url, method) {
     statusCode: {
       200: function (data) {
         $.notify(data, "success");
+      },
+      404: function (errors) {
+          $.notify('Error: 404! Not Found!', "error");
       },
       422: function (errors) {
         $.each(errors.responseJSON, function(key, value) {
@@ -36,5 +39,5 @@ $('#complain-form').submit(function(e) {
   var formdata = new FormData(this)
   var complainUrl = $(this).attr('action')
 
-  submitComplain(formdata, complainUrl)
+  submitForm(formdata, complainUrl)
 })

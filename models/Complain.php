@@ -6,8 +6,14 @@
  *
  * Lincence: [MIT license]
  */
+ namespace models;
 
- class Complain_Model implements Model
+ use classes\DB;
+ use classes\Hash;
+ use classes\Input;
+ use classes\Session;
+
+ class Complain implements Model
  {
    public static $table = 'complains';
    public static $primary_key = 'id';

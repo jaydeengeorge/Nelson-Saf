@@ -5,21 +5,21 @@
  * Date: 06/23/17
  * Time : 01:17 AM
  */
- // namespace classes;
+  namespace classes;
 
-class View
-{
-  // View directory name
-  protected $viewdir = "views/";
-
-  function __construct($path, $data = null)
+  class View
   {
-    if (strchr($path, '.')) {
-      $path = str_replace('.', '/', $path);
+    // View directory name
+    protected $viewdir = "views/";
+
+    function __construct($path, $data = null)
+    {
+      if (strchr($path, '.')) {
+        $path = str_replace('.', '/', $path);
+      }
+      require_once $this->viewdir."{$path}.php";
     }
-    require_once $this->viewdir."{$path}.php";
   }
-}
 
 
 /**

@@ -5,8 +5,7 @@
  * Date: 06/24/17
  * Time : 18:17 AM
  */
- // namespace classes;
-
+ namespace classes;
 
  class Route
  {
@@ -57,16 +56,16 @@
    public static function auth()
    {
      // Login View
-     self::$_get['/login'] = 'Login_Controller@index';
+     self::$_get['/login'] = 'LoginController@index';
 
      // Submitting Login Form-data
-     self::$_post['/login'] = 'Login_Controller@authenticate';
+     self::$_post['/login'] = 'LoginController@authenticate';
 
      // Register View
-     self::$_get['/register'] = 'Register_Controller@index';
+     self::$_get['/register'] = 'RegisterController@index';
 
      // Submitting Register Form-data
-     self::$_post['/register'] = 'Register_Controller@register';
+     self::$_post['/register'] = 'RegisterController@register';
 
      return $this;
    }

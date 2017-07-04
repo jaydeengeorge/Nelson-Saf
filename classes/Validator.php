@@ -17,10 +17,10 @@
  | customizable error messages
  |
  */
+  namespace classes;
 
-class Validator
-{
-
+  class Validator
+  {
     private $validated;
     private $data;
     private $errors = array();
@@ -33,40 +33,40 @@ class Validator
 
     public function validate($keyrule = array())
     {
-        function removeFoundNeedle($rules, $needle)
-        {
-            $rules = explode($needle, $rules);
-            foreach ($rules as $key=> $item){
-                $rules[$key] = ltrim($item,$needle);
-            }
-            return $rules;
-        }
-
-        foreach ($keyrule as $key => $rules){
-          // print($input." => ".$rules."\n");
-          if(strchr($rules,'|')){
-
-            $rules = removeFoundNeedle($rules, '|');
-            foreach ($rules as $rule){
-              if(strchr($rule,':')) {
-                $rule = removeFoundNeedle($rule, ':');
-                $r = $rule[0];
-                $this->$r($key, $rule[0], $rule[1]);
-              }
-              else{
-                  $this->$rule($key);
-              }
-            }
+      function removeFoundNeedle($rules, $needle)
+      {
+          $rules = explode($needle, $rules);
+          foreach ($rules as $key=> $item){
+              $rules[$key] = ltrim($item,$needle);
           }
-          elseif(strchr($rules,':')) {
-            $rules = removeFoundNeedle($rules, ':');
+          return $rules;
+      }
 
-            $this->$rules[0]($key, $rules[0], $rules[1]);
-          }
-          else{
-              $this->$rules($key, $rules);
+      foreach ($keyrule as $key => $rules){
+        // print($input." => ".$rules."\n");
+        if(strchr($rules,'|')){
+
+          $rules = removeFoundNeedle($rules, '|');
+          foreach ($rules as $rule){
+            if(strchr($rule,':')) {
+              $rule = removeFoundNeedle($rule, ':');
+              $r = $rule[0];
+              $this->$r($key, $rule[0], $rule[1]);
+            }
+            else{
+                $this->$rule($key);
+            }
           }
         }
+        elseif(strchr($rules,':')) {
+          $rules = removeFoundNeedle($rules, ':');
+
+          $this->$rules[0]($key, $rules[0], $rules[1]);
+        }
+        else{
+            $this->$rules($key, $rules);
+        }
+      }
     }
 
     // Ensure any required fields isn't empty
@@ -83,24 +83,24 @@ class Validator
     // Ensure Emails fields are valid
     public function  email($key)
     {
-        // regex will work better
-        if(!strchr($this->data[$key], '@')){
-            $error = "The field {$key} must be a valid email.";
-            $this->errors = Arr::push($this->errors, $error);
-            return false;
-        }
-        return true;
+      // regex will work better
+      if(!strchr($this->data[$key], '@')){
+          $error = "The field {$key} must be a valid email.";
+          $this->errors = Arr::push($this->errors, $error);
+          return false;
+      }
+      return true;
     }
 
     // Ensure field's maximum character rule
     public function max($key, $num)
     {
-        if(strlen($this->data[$key]) > $num){
-            $error = "The field {$key} may not be greater than {$key}.";
-            $this->errors = Arr::push($this->errors, $error);
-            return false;
-        }
-        return true;
+      if(strlen($this->data[$key]) > $num){
+          $error = "The field {$key} may not be greater than {$num}.";
+          $this->errors = Arr::push($this->errors, $error);
+          return false;
+      }
+      return true;
     }
 
     // Ensure field's minimum character rule
@@ -150,4 +150,4 @@ class Validator
     {
         $this->errors = Arr::push($this->errors, "Method ".$fun." isn't implemented yet!");
     }
-}
+  }

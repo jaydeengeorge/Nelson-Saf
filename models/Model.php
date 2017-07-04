@@ -7,7 +7,7 @@
  *
  */
 
- // namespace Contracts;
+ namespace models;
 
  Interface Model
  {

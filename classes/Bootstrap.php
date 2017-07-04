@@ -14,46 +14,57 @@
  |Bootstraping the application
  |
  */
+ namespace classes;
+
+ use classes\Sessions;
+ use classes\Route;
+ use classes\View;
+ use controllers\Controller;
+ use controllers\HomeController;
+ use controllers\LoginController;
+ use controllers\RegisterController;
+ use controllers\UserController;
+
  class Bootstrap
  {
 
-   function __construct()
+   function __construct($current_uri, $request_method = 'GET', $uri_prev = null, $query_str = null)
    {
-     // Accesed path in browser and remove trailling slashes
-     $uri = $_SERVER['PATH_INFO'];
-
-     // Url FROM
-     $uri_prev = $_SERVER['HTTP_REFERER'];
-
-     // Request method GET/POST
-     $request_method = $_SERVER['REQUEST_METHOD'];
-
-     // Query string f exists
-     $query_str = $_SERVER['QUERY_STRING"'];
-
      // Get all registered GET routes
      $routes = Route::getAll($request_method);
-
+     
+     // Set previous Url
      Session::setpreviousUrl($uri_prev);
 
      // Mnually add a slash at the begining
-     if ($uri == '') {
-       $uri = '/';
+     if ($current_uri == '') {
+       $current_uri = '/';
      }else{
        // Remove trailling slashes
-       $uri = trim($uri, '/');
+       $current_uri = trim($current_uri, '/');
        // Manually add a slash at the begining
-       $uri = '/'.$uri;
+       $current_uri = '/'.$current_uri;
      }
 
-     if (!array_key_exists($uri, $routes)) {
-       $data['title'] = "Not Found";
-       $data['error'] = "Route {$uri} Not Found";
+     if ($this->isAllowedUrl($current_uri, $routes)) {
+       $action = explode('@', $routes[$current_uri]);
+       $classname = 'controllers\\'.$action[0];
 
-       return new View('404', $data);
-     }else {
-       $action = explode('@', $routes[$uri]);
-       $controller = new $action[0]($action[1]);
+       return new $classname($action[1]);
      }
+     $data['title'] = "Not Found";
+     $data['error'] = "Route {$uri} Not Found";
+
+     http_response_code(404);
+     return new View('404', $data);
+   }
+
+   // Check accessed Url is in routes
+   public function isAllowedUrl($uri, $routes)
+   {
+     if (array_key_exists($uri, $routes)) {
+        return true;
+      }
+      return false;
    }
  }

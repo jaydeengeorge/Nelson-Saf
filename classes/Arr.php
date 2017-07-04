@@ -8,67 +8,60 @@
  *
  * Lincence: [MIT license]
  */
-class Arr
-{
-    /* Add value to Arr
-    *
-    * Returns the whole array
-    */
-    // public function __construct($value)
-    // {
-    //   $this->push($this->_arr, $value);
-    // }
+ namespace classes;
 
-    public function push($arr, $value)
-    {
-        try{
-            if (array_push($arr, $value)) {
-                return $arr;
-            }
-            throw new Exception('Method push Expects array!');
-        }
-        catch (Exception $e){
-            return $e->getMessage();
-        }
-    }
-
-    // Delete an array element
-    public function delete($arr, $key)
-    {
-      try {
-        if (is_array($arr)) {
-          if (array_key_exists($key, $arr)) {
-            $arr[$key] = null;
+  class Arr
+  {
+      public function push($arr, $value)
+      {
+          try{
+              if (array_push($arr, $value)) {
+                  return $arr;
+              }
+              throw new Exception('Method push Expects array!');
           }
+          catch (Exception $e){
+              return $e->getMessage();
+          }
+      }
+
+      // Delete an array element
+      public function delete($arr, $key)
+      {
+        try {
+          if (is_array($arr)) {
+            if (array_key_exists($key, $arr)) {
+              $arr[$key] = null;
+            }
+          }
+        } catch (Exception $e) {
+
         }
-      } catch (Exception $e) {
+      }
+
+      public function has($value='')
+      {
+        # code...
+      }
+
+      public function empty()
+      {
 
       }
-    }
 
-    public function has($value='')
-    {
-      # code...
-    }
+      /**
+       * @param mixed $errors
+       */
+      public function setErrors($errors)
+      {
+          $this->errors = $errors;
+      }
 
-    public function empty()
-    {
-
-    }
-
-    /**
-     * @param mixed $errors
-     */
-    public function setErrors($errors)
-    {
-        $this->errors = $errors;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getErrors()
-    {
-        return $this->errors;
-    }
-}
+      /**
+       * @return mixed
+       */
+      public function getErrors()
+      {
+          return $this->errors;
+      }
+  }

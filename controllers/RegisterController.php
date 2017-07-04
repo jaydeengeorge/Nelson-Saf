@@ -6,9 +6,17 @@
  * Time : 21:39 PM
  *
  */
- // namespace controllers
+namespace controllers;
 
- class Register_Controller extends Controller
+use classes\Hash;
+use classes\Input;
+use classes\Redirect;
+use classes\Session;
+use classes\Validator;
+use classes\View;
+use models\User;
+
+ class RegisterController extends Controller
  {
 
    function __construct($metod)
@@ -48,13 +56,13 @@
        return Redirect::back();
      }
 
-     $user = new User_Model;
+     $user = new User;
 
      $user->f_name   = $formdata['f_name'];
      $user->l_name   = $formdata['l_name'];
      $user->email    = $formdata['email'];
      $user->password = Hash::password(Input::post('password'));
 
-     return User_Model::create($user);
+     return User::create($user);
    }
  }

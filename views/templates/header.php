@@ -48,7 +48,7 @@
           <ul class="nav navbar-nav">&nbsp;</ul>
           <ul class="nav navbar-nav navbar-right">
             <li style="margin-right: 10px"><a href="#">FAQ</a></li>
-            <li class="action-btn"><a href="<? echo SITE_URL;?>/feedback">Your   FeedBack</a></li>
+            <li class="action-btn"><a href="<? echo SITE_URL;?>/feedback">Your FeedBack</a></li>
           </ul>
         </div>
       </div>

@@ -8,7 +8,9 @@
  *
  * Lincence: [MIT license]
  */
-class Sanitize
-{
+  namespace classes;
 
-}
+  class Sanitize
+  {
+
+  }

@@ -6,9 +6,19 @@
  * Time : 21:25 PM
  *
  */
- // namespace controllers
+ namespace controllers;
 
- class User_Controller extends Controller
+ use classes\Hash;
+ use classes\Input;
+ use classes\Redirect;
+ use classes\Response;
+ use classes\Session;
+ use classes\Validator;
+ use classes\View;
+ use models\User;
+ use models\Complain;
+
+ class UserController extends Controller
  {
 
    function __construct($metod)
@@ -37,7 +47,7 @@
 
       return Response::json($errors, 422);
      }
-     $user = new User_Model;
+     $user = new User;
      $uniq_id = uniqid();
 
      $user->id_no = $formdata['id_no'];
@@ -54,7 +64,7 @@
        return Response::json($errors['db_errors'], 500);
      }
      // create complian for the user
-     $complain = new Complain_Model;
+     $complain = new Complain;
 
      $complain->user_id = $user->id;
      $complain->description = $formdata['description'];

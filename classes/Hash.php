@@ -8,14 +8,16 @@
  *
  * Lincence: [MIT license]
  */
-class Hash
-{
+  namespace classes;
+
+  class Hash
+  {
     public static function password($password)
     {
-        return md5($password);
+      return md5($password);
     }
     public static function make($string)
     {
     }
 
-}
+  }

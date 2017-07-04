@@ -8,17 +8,11 @@
  */
  // Page Header
  require_once "templates/header.php";
- require_once "messages/errors.php";
+ // require_once "messages/errors.php";
 
- $errors = Session::get('errors');
+ $errors = classes\Session::get('errors');
 
  $errors = json_encode($errors);
-
- // var_dump($errors); exit();
-
- // foreach (Session::get('errors') as $key => $value) {
-
-  //  }
 
 ?>
 
@@ -83,7 +77,7 @@
  <?
  require_once "templates/footer.php";
 
- $errors = json_encode(Session::get('errors'));
+ $errors = json_encode(classes\Session::get('errors'));
  // foreach ($errors as $key => $value) {
    echo "<script type='text/javascript'>
     $.notify({$errors[1]}, 'error');
