@@ -19,10 +19,10 @@
  use classes\Sessions;
  use classes\Route;
  use classes\View;
+ use controllers\auth\LoginController;
+ use controllers\auth\RegisterController;
  use controllers\Controller;
  use controllers\HomeController;
- use controllers\LoginController;
- use controllers\RegisterController;
  use controllers\UserController;
 
  class Bootstrap
@@ -32,7 +32,7 @@
    {
      // Get all registered GET routes
      $routes = Route::getAll($request_method);
-     
+
      // Set previous Url
      Session::setpreviousUrl($uri_prev);
 

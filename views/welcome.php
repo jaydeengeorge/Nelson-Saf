@@ -98,7 +98,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" form="login-form" name="register">Submit Complain</button>
+        <button type="submit" class="btn btn-primary" form="login-form" name="register">Login</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
