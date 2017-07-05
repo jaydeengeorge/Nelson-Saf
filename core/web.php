@@ -16,7 +16,7 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 
 // Users account
-Route::get('/user/account', 'UserController@getUserAccount');
+Route::get('/user/dashboard', 'UserController@getUserDashboard');
 
 // Submit a complain
 Route::post('/complain', 'UserController@launchComplain');

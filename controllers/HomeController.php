@@ -9,6 +9,7 @@
 namespace controllers;
 
 use classes\View;
+use classes\Redirect;
 use classes\Session;
 
 class HomeController extends Controller
@@ -24,9 +25,9 @@ class HomeController extends Controller
   {
     $data['title'] = "Home";
 
-    // if (Session::has('user')) {
-    //   return new View('home', $data);
-    // }
+    if (Session::has('user')) {
+      return Redirect::to('/user/dashboard');
+    }
     return new View('welcome', $data);
   }
 }

@@ -21,7 +21,7 @@
        */
       public static function has($name)
       {
-          if (!empty($_SESSION[$name]))
+          if (isset($_SESSION[$name]))
               return true;
           return false;
       }
@@ -66,17 +66,9 @@
       public static function forget($name)
       {
           if (self::has($name)) {
-              $_SESSION[$name] = null;
+              unset($_SESSION[$name]);
               return true;
           }
-      }
-
-      public function delete($name)
-      {
-        if (self::has($name)) {
-          unset($_SESSION[$name]);
-          return true;
-        }
       }
 
       public static function all()

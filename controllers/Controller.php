@@ -12,9 +12,9 @@
 
  class Controller
  {
-   function __construct($method)
+   function __construct($method, $parameters = null)
    {
-     $this->$method();
+     $this->$method($parameters);
    }
 
    public function __call($method, $parameters)

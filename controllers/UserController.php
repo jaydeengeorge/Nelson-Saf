@@ -109,11 +109,20 @@
      return Response::json($errors, 422);
    }
 
+   // User Darshboard
+   public function getUserDashboard()
+   {
+     if (Session::has('user')) {
+       return new View('dashboard');
+     }
+     return Redirect::to('/');
+   }
+
    // Logout the User
    public function logout()
    {
      if (Session::has('user')) {
-       Session::delete('user');
+       Session::forget('user');
      }
      return Redirect::to('/');
    }
