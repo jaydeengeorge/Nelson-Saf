@@ -47,3 +47,13 @@ $('#complain-form').submit(function(e) {
 
   submitForm(formdata, complainUrl);
 })
+
+// Submitting log in form
+$('#login-form').submit(function(e) {
+  e.preventDefault()
+  //
+  // var formdata = new FormData(this)
+  // var complainUrl = $(this).attr('action')
+  //
+  // submitForm(formdata, complainUrl);
+})
