@@ -36,8 +36,8 @@
 </body>
 </html>
 <?
-// if (Session::has('errors')) {
-//   Session::forget('errors');
-// }
+if (classes\Session::has('errors')) {
+  classes\Session::forget('errors');
+}
 
 ?>

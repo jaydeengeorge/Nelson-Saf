@@ -22,6 +22,23 @@
     <!-- Icons -->
     <link rel="stylesheet" href="<? echo BASE_URL;?>/assets/css/">
 
+    <style>
+    .dropdown-menu{
+      font-size: 12px;
+    }
+    .dropdown-menu > li > a {
+      padding: 6px 20px;
+    }
+    .dropdown-menu .divider {
+      margin: 3px 0;
+    }
+    .username{
+      outline: dashed 1px;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+    }
+    </style>
+
 </head>
 <body>
     <!-- Navigation -->
@@ -50,7 +67,15 @@
             <li style="margin-right: 10px"><a href="#">FAQ</a></li>
             <? if (classes\Session::has('user')): ?>
               <li style="margin-right: 10px">
-                <a href="#"><? echo explode(' ', classes\Session::get('user')->name)[0]; ?> <span class="caret"></span></a>
+                <a class="dropdown-toggle username" data-toggle="dropdown" role="button" aria-expanded="false" href="#">
+                  <? echo explode(' ', classes\Session::get('user')->name)[0]; ?>
+                  <span class="caret"></span></a>
+
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Your Profile</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/logout" >Logout</a></li>
+                  </ul>
               </li>
             <? else: ?>
               <li class="action-btn"><a href="#" data-toggle="modal" data-target="#loginModal" >Your FeedBack</a></li>
