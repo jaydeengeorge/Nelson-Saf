@@ -66,9 +66,17 @@
       public static function forget($name)
       {
           if (self::has($name)) {
-              unset($_SESSION[$name]);
+              $_SESSION[$name] = null;
               return true;
           }
+      }
+
+      public function delete($name)
+      {
+        if (self::has($name)) {
+          unset($_SESSION[$name]);
+          return true;
+        }
       }
 
       public static function all()

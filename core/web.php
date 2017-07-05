@@ -24,5 +24,10 @@ Route::post('/complain', 'UserController@launchComplain');
 // Submitting Login Form-data
 Route::post('/login', 'UserController@authenticate');
 
+// Logout the user
+Route::post('/logout', 'UserController@logout');
+
+
+
 //Testing
 Route::get('/test', 'UserController@test');

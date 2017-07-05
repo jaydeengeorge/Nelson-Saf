@@ -109,6 +109,17 @@
      return Response::json($errors, 422);
    }
 
+   // Logout the User
+   public function logout()
+   {
+     if (Session::has('user')) {
+       Session::delete('user');
+     }
+     return Redirect::to('/');
+   }
+
+
+   // Just a stupid test
    public function test()
    {
      var_dump(Session::all()); exit();

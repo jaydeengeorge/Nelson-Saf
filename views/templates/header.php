@@ -74,7 +74,15 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Your Profile</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="/logout" >Logout</a></li>
+                    <li><a href="/logout" onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                             Logout</a>
+                           </li>
+
+                    <!-- Logout form -->
+                    <form class="" id="logout-form" action="<? echo SITE_URL.'/logout'; ?>" method="post">
+                      <input type="hidden" name="id" value="<? echo classes\Session::get('user')->id ?>" >
+                    </form>
                   </ul>
               </li>
             <? else: ?>
