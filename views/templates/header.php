@@ -49,6 +49,10 @@
           <ul class="nav navbar-nav navbar-right">
             <li style="margin-right: 10px"><a href="#">FAQ</a></li>
             <li class="action-btn"><a href="<? echo SITE_URL;?>/feedback">Your FeedBack</a></li>
+            <? if (classes\Session::has('user')): ?>
+              <li style="margin-right: 10px">
+                <a href="#">Joram</a></li>
+            <? endif; ?>
           </ul>
         </div>
       </div>
