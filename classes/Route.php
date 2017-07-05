@@ -59,7 +59,7 @@
      self::$_get['/login'] = 'LoginController@index';
 
      // Submitting Login Form-data
-     self::$_post['/login'] = 'LoginController@authenticate';
+    //  self::$_post['/login'] = 'LoginController@authenticate';
 
      // Register View
      self::$_get['/register'] = 'RegisterController@index';

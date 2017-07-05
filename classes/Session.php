@@ -21,7 +21,7 @@
        */
       public static function has($name)
       {
-          if (isset($_SESSION[$name]))
+          if (!empty($_SESSION[$name]))
               return true;
           return false;
       }
@@ -71,9 +71,10 @@
           }
       }
 
-      /**
-       *
-       */
+      public static function all()
+      {
+        return $_SESSION;
+      }
       public static function flash()
       {
           // Set a session maintained for one request

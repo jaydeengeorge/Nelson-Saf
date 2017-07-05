@@ -48,10 +48,12 @@
           <ul class="nav navbar-nav">&nbsp;</ul>
           <ul class="nav navbar-nav navbar-right">
             <li style="margin-right: 10px"><a href="#">FAQ</a></li>
-            <li class="action-btn"><a href="#" data-toggle="modal" data-target="#loginModal" >Your FeedBack</a></li>
             <? if (classes\Session::has('user')): ?>
               <li style="margin-right: 10px">
-                <a href="#">Joram</a></li>
+                <a href="#"><? echo explode(' ', classes\Session::get('user')->name)[0]; ?> <span class="caret"></span></a>
+              </li>
+            <? else: ?>
+              <li class="action-btn"><a href="#" data-toggle="modal" data-target="#loginModal" >Your FeedBack</a></li>
             <? endif; ?>
           </ul>
         </div>

@@ -20,3 +20,9 @@ Route::get('/user/account', 'UserController@getUserAccount');
 
 // Submit a complain
 Route::post('/complain', 'UserController@launchComplain');
+
+// Submitting Login Form-data
+Route::post('/login', 'UserController@authenticate');
+
+//Testing
+Route::get('/test', 'UserController@test');

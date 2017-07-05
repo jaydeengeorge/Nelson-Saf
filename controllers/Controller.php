@@ -8,6 +8,8 @@
  */
  namespace controllers;
 
+ use classes\View;
+
  class Controller
  {
    function __construct($method)

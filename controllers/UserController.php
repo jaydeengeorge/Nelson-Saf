@@ -77,10 +77,40 @@
        return Response::json($errors['db_errors'], 500);
      }
      // Log in user Here
+     return new Response('Your Complain has been Recieved. Get back to you soon!', 200);
+   }
+
+   public function authenticate()
+   {
+     // Get form data
+     $formdata = Input::all();
+
+     // Validate Input data
+     $validator = new Validator;
+     $validate = $validator->make($formdata,[
+       'phone'=>'required',
+       'secret'=>'required'
+     ]);
+
+     // If errors exists redirect back
+     if ($validator->fails()) {
+       $errors = $validator->errors();
+
+       return Response::json($errors, 422);
+     }
+     $user = new User;
+     $user->phone = $formdata['phone'];
+     $user->secret = Hash::password($formdata['secret']);
+
      if (LoginController::authenticate($user)) {
-       return new Response('Your Complain has been Recieved. Get back to you soon!', 200);
+       return new Response('', 200);
      }
      $errors = Session::get('errors');
-     return new Response($errors, 422);
+     return Response::json($errors, 422);
+   }
+
+   public function test()
+   {
+     var_dump(Session::all()); exit();
    }
  }

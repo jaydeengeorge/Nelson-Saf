@@ -37,20 +37,24 @@ class LoginController extends Controller
  public static function authenticate($user)
  {
    // Find user with email
-   $user_to_auth = User::where(['email', $user->email]);
+   $user_exists = User::where(['phone', $user->phone]);
 
-   if ($user_to_auth) {
-     $password = Hash::password($user->password);
+   if ($user_exists) {
+     $secret = Hash::password($user->secret);
 
-     if ($user_to_auth->password == $password) {
-       Session::put('user', $user);
+     if ($user_exists->secret == $secret) {
+       Session::put('user', $user_exists);
        return true;
-     }
-     $errors = ['error' => 'Invalid Email Password Combination!'];
-     Session::put('errors', $errors);
+     }else {
+       $errors = ['error' => "Invalid {$user_exists->secret} - {$secret} Combination!"];
+       Session::put('errors', $errors);
 
-     return true;
+       return false;
+     }
    }
+   $errors = ['error' => "{$user->phone} Not Found in our Records!"];
+   Session::put('errors', $errors);
+
    return false;
  }
 }
