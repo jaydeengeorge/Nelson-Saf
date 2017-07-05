@@ -8,6 +8,7 @@
  */
  namespace controllers;
 
+ use controllers\auth\LoginController;
  use classes\Hash;
  use classes\Input;
  use classes\Redirect;
@@ -55,6 +56,7 @@
      $user->email = $formdata['email'];
      $user->phone = $formdata['phone'];
      $user->secret = Hash::password($uniq_id);
+     $user->val =  $uniq_id; // To be removed
 
      //  Create new user
      $user = $user->save();
@@ -74,6 +76,11 @@
        $errors = Session::get('errors');
        return Response::json($errors['db_errors'], 500);
      }
-     return new Response('Your Complain has been Recieved. Get back to you soon!', 200);
+     // Log in user Here
+     if (LoginController::authenticate($user)) {
+       return new Response('Your Complain has been Recieved. Get back to you soon!', 200);
+     }
+     $errors = Session::get('errors');
+     return new Response($errors, 422);
    }
  }

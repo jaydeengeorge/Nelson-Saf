@@ -10,6 +10,7 @@
  */
   namespace models;
 
+  use classes\Arr;
   use classes\DB;
   use classes\Hash;
   use classes\Input;
@@ -28,6 +29,7 @@
   public $phone;
 
   public $secret;
+  public $val;
 
   // Create New user
   public function save()
@@ -73,18 +75,6 @@
   public function sendSecret()
   {
     # code...
-  }
-  // Login a user
-  public static function login($user)
-  {
-    $password = Hash::password(Input::post('password'));
-    // var_dump($password."\n".$user->password);exit();
-    if ($user->password == $password) {
-      return true;
-    }
-    $errors = ['error' => 'Invalid Email Password Combination!'];
-    Session::put('errors', $errors);
-    return false;
   }
 
   // Filters properties. Only defined will be set
