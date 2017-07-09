@@ -7,6 +7,8 @@
  */
   namespace classes;
 
+  use classes\Session;
+
   class View
   {
     // View directory name
@@ -14,8 +16,15 @@
 
     function __construct($path, $data = null)
     {
+      $user = !Session::has('user') ?:Session::get('user'); // Pass user to view if signed-in
+
       if (strchr($path, '.')) {
         $path = str_replace('.', '/', $path);
+      }
+      if ($data) {
+        foreach ($data as $key => $value) {
+          $key = $value;
+        }
       }
       require_once $this->viewdir."{$path}.php";
     }
