@@ -37,6 +37,9 @@
       padding-top: 8px !important;
       padding-bottom: 8px !important;
     }
+    .body-background{
+      background: #f5f8fa !important;
+    }
     </style>
 
 </head>

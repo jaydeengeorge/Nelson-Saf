@@ -17,6 +17,8 @@
 ?>
 
 <!-- Page content -->
+<div class="welcome-body">
+
 <div class="main">
   <div class="m-b-md">
     <div class="" style="margin-left: 60px;">
@@ -29,6 +31,7 @@
   </div>
 </div>
 
+</div>
 <!-- Complain modal -->
 <div class="modal fade" id="complainModal" tabindex="-1" role="dialog" aria-labelledby="complainModal">
   <div class="modal-dialog" role="document">
