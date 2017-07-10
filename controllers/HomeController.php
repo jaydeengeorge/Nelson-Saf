@@ -17,7 +17,7 @@ class HomeController extends Controller
   // Implemet parent contructor
   function __construct($method, $parameters = null)
   {
-    parent::__construct($method $parameters);
+    parent::__construct($method, $parameters);
   }
 
   // Loading the home view

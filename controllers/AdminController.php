@@ -7,16 +7,24 @@
  */
  namespace controllers;
 
+ use classes\Redirect;
+ use classes\Session;
+ use classes\View;
+
  class AdminController extends Controller
  {
-
    function __construct($method, $parameters = null)
    {
-     parent::__construct($method, $parameters);
+     if (Session::has('user') && Session::get('user')->user_type == 'super') {
+       return parent::__construct($method, $parameters);
+     }
+     $errors = ['error'=> "Access Denied!!!"];
+     Session::put('errors', $errors);
+     return Redirect::to('/');
    }
 
    public function index()
    {
-     # code...
+     return new View('admin.dashboard');
    }
  }

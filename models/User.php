@@ -42,7 +42,7 @@
       if($db->table(self::$table)->insert($this)){
         return $db->_results;
       }
-      Session::putErrors(Arr::push('db_errors', $db->_errors));
+      Session::put('errors', Arr::push('db_errors', $db->_errors));
       return false;
     }
     // Return the user if already exists

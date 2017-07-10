@@ -159,3 +159,9 @@
   .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
     border-left: solid 2px #b10404;
   }
+
+  .alert{
+      border-left: solid;
+      transition: box-shadow .25s;
+      border-radius: 0px;
+  }

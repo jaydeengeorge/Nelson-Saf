@@ -1,11 +1,11 @@
 <?php
 
 // Page Header
-require_once "templates/header.php";
+require_once "views/templates/header.php";
 ?>
 <!-- Page content -->
 <div class="container" style="height: 80%; margin-top: 30px;">
-  <? require_once "messages/errors.php"; ?>
+
   <div class="row">
     <div class="col-md-3" style="">
       <div class="profile-container">

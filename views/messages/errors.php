@@ -1,17 +1,11 @@
-<div class="">
-<? if (Session::has('errors')): ?>
+<? if (classes\Session::has('errors')): ?>
     <div class="alert alert-danger">
     <?
-    echo "<script type='text/javascript'>
-     $.notify('boom', 'error');
-     </script>";
-
-    foreach (Session::get('errors') as $key => $value) {
-      echo "<script type='text/javascript'>
-       $.notify('Booom bang', 'error');
-       </script>";
+    foreach (classes\Session::get('errors') as $value) {
+      echo $value;
      }
    ?>
+   <button style="margin-top:-3px;" type="button" class="close" data-dismiss="alert" aria-label="Close">
+   <span aria-hidden="true">&times;</span></button></li>
   </div>
 <? endif; ?>
-</div>
