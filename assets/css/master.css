@@ -161,7 +161,11 @@
   }
 
   .alert{
-      border-left: solid;
-      transition: box-shadow .25s;
-      border-radius: 0px;
+    border-left: solid;
+    transition: box-shadow .25s;
+    border-radius: 0px;
+  }
+
+  .fa-3x{
+    font-size: 5.5em;
   }

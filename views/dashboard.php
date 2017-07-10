@@ -36,8 +36,10 @@ require_once "templates/header.php";
         <div class="panel-heading">
           <h4>User Dashboard</h4>
         </div>
-        <div class="panel-body">
+        <div class="panel-body text-center">
 
+          <span class="fa-3x glyphicon glyphicon-warning-sign"></span>
+          <h3>We are working on your Feedback!</h3>
         </div>
       </div>
     </div>
