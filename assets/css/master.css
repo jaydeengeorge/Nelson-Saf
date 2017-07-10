@@ -56,16 +56,16 @@
     background: rgb(23, 24, 24);
     margin-bottom: 0px !important;
     border: 0px;
-    min-height: 70px !important;
+    /*min-height: 70px !important;*/
   }
 
   .navbar-nav > li > a{
     padding: 10px !important;
     color: #fff !important;
+    margin-top: 5px;
   }
 
   .navbar-right{
-    margin-top: 8px;
     font-weight: 7  00;
     font-style: normal;
     font-size: 12px;
@@ -75,7 +75,7 @@
   }
 
   .action-btn{
-    padding: 0 24px;
+    padding: 0 10px;
     /*height: 40px;*/
     border-radius: 40px;
     box-shadow: inset 0 0 0 1px #eee;

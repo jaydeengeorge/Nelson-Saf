@@ -25,6 +25,7 @@ require_once "templates/header.php";
       </div>
       <div class="list-group">
         <a href="#" class="list-group-item active">Darshboard </a>
+        <a href="#" class="list-group-item" data-toggle="modal" data-target="#complainModal">New Complains</a>
         <a href="#" class="list-group-item">Previous Complains</a>
         <a href="#" class="list-group-item">Setting</a>
       </div>

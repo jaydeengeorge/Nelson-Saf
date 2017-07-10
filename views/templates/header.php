@@ -46,7 +46,7 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-default">
-      <div class="container" style="margin-top: 8px;">
+      <div class="container" style="">
         <div class="navbar-header">
           <!-- Toggle Navigation -->
           <button type="button" data-toggle="collapse" data-target="#app-navbar-collapse" class="navbar-toggle collapsed">
@@ -81,15 +81,15 @@
                              document.getElementById('logout-form').submit();">
                              Logout</a>
                            </li>
-
-                    <!-- Logout form -->
-                    <form class="" id="logout-form" action="<? echo SITE_URL.'/logout'; ?>" method="post">
-                      <input type="hidden" name="id" value="<? echo classes\Session::get('user')->id ?>" >
-                    </form>
                   </ul>
+                  <!-- Logout form -->
+                  <form style="margin: 0px;" id="logout-form" action="<? echo SITE_URL.'/logout'; ?>" method="post">
+                    <input type="hidden" name="id" value="<? echo classes\Session::get('user')->id ?>" >
+                  </form>
               </li>
             <? else: ?>
-              <li class="action-btn"><a href="#" data-toggle="modal" data-target="#loginModal" >Your FeedBack</a></li>
+              <li class="action-btn" style="margin-top: 7px;">
+                <a style="padding: 8px !important; margin-top: 0px !important;" href="#" data-toggle="modal" data-target="#loginModal" >Your FeedBack</a></li>
             <? endif; ?>
           </ul>
         </div>
