@@ -35,49 +35,43 @@
      // Validate Input data
      $validator = new Validator;
 
-     $validate = $validator->make($formdata,[
-       'id_no'=>'required|min:10',
-       'name'=>'required',
-       'phone'=>'required',
-       'description'=>'required' // Max validation not working for now (max:250)
-     ]);
+     if (!Session::has('user')) {
+       $validate = $validator->make($formdata,[
+         'id_no'=>'required|min:10',
+         'name'=>'required',
+         'phone'=>'required',
+         'description'=>'required' // Max validation not working for now (max:250)
+       ]);
+       // If errors exists redirect back
+       if ($validator->fails()) {
+         $errors = $validator->errors();
 
-     // If errors exists redirect back
-     if ($validator->fails()) {
-       $errors = $validator->errors();
+        return Response::json($errors, 422);
+       }
 
-      return Response::json($errors, 422);
+       $user_id = $this->createUser($formdata);
+       if ($user_id == false) {
+         return Response::json($errors['db_errors'], 500);
+       }
+     }else{
+       $validate = $validator->make($formdata,[
+         'id_no'=>'required|min:10',
+         'description'=>'required' // Max validation not working for now (max:250)
+       ]);
+       // If errors exists redirect back
+       if ($validator->fails()) {
+         $errors = $validator->errors();
+
+        return Response::json($errors, 422);
+       }
+       $user_id = Session::get('user')->id;
      }
-     $user = new User;
-     $uniq_id = uniqid();
 
-     $user->id_no = $formdata['id_no'];
-     $user->name  = $formdata['name'];
-     $user->email = $formdata['email'];
-     $user->phone = $formdata['phone'];
-     $user->secret = Hash::password($uniq_id);
-     $user->val =  $uniq_id; // To be removed
-
-     //  Create new user
-     $user = $user->save();
-     if (!$user) {
-       // TODO: Send secret to user phone Here {$user->sendSecret()}
-       $errors = Session::get('errors');
-       return Response::json($errors['db_errors'], 500);
-     }
      // create complian for the user
-     $complain = new Complain;
-
-     $complain->user_id = $user->id;
-     $complain->description = $formdata['description'];
-
-     $complain = $complain->save();
-     if (!$complain) {
-       $errors = Session::get('errors');
-       return Response::json($errors['db_errors'], 500);
+     if ($this->createComplain($formdata, $user_id)) {
+       // TODO: Log in user Here
+       return new Response('Your Complain has been Recieved. Get back to you soon!', 200);
      }
-     // Log in user Here
-     return new Response('Your Complain has been Recieved. Get back to you soon!', 200);
    }
 
    public function authenticate()
@@ -118,6 +112,42 @@
      return Redirect::to('/');
    }
 
+   public function createUser($formdata)
+   {
+     $user = new User;
+     $uniq_id = uniqid();
+
+     $user->id_no = $formdata['id_no'];
+     $user->name  = $formdata['name'];
+     $user->email = $formdata['email'];
+     $user->phone = $formdata['phone'];
+     $user->secret = Hash::password($uniq_id);
+     $user->val =  $uniq_id; // To be removed
+
+     //  Create new user
+     $user = $user->save();
+     if (!$user) {
+       // TODO: Send secret to user phone Here {$user->sendSecret()}
+       $errors = Session::get('errors');
+       return false;
+     }
+     return $user->id;
+   }
+
+   public function createComplain($formdata, $user_id)
+   {
+     $complain = new Complain;
+
+     $complain->user_id = $user_id;
+     $complain->description = $formdata['description'];
+
+     $complain = $complain->save();
+     if (!$complain) {
+       $errors = Session::get('errors');
+       return false;
+     }
+     return true;
+   }
    // Logout the User
    public function logout()
    {

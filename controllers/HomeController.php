@@ -24,10 +24,10 @@ class HomeController extends Controller
   public function index()
   {
     $data['title'] = "Home";
-
-    if (Session::has('user')) {
-      return Redirect::to('/user/dashboard');
-    }
+    // 
+    // if (!Session::has('user')) {
+    //   return Redirect::to('/user/dashboard');
+    // }
     return new View('welcome', $data);
   }
 }

@@ -51,7 +51,7 @@ $('#complain-form').submit(function(e) {
 // Submitting log in form
 $('#login-form').submit(function(e) {
   e.preventDefault()
-  
+
   var formdata = new FormData(this)
   var complainUrl = $(this).attr('action')
 

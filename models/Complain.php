@@ -8,6 +8,7 @@
  */
  namespace models;
 
+ use classes\Arr;
  use classes\DB;
  use classes\Hash;
  use classes\Input;

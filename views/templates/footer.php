@@ -27,21 +27,22 @@
             <label class="control-label" for="id_no">ID NO: </label><span class="required">*</span>
             <input class="form-control" type="text" name="id_no" id="id_no" value="<? echo $user->id_no;?>" placeholder="Your ID card NO." >
           </div>
+          <? if (!classes\Session::has('user')): ?>
+            <div class="form-group">
+              <label class="control-label" for="phone">Phone: </label><span class="required">*</span>
+              <input class="form-control" type="number" min="0" name="phone" id="phone" value="<? echo $user->phone;?>" placeholder="Your phone Number.">
+            </div>
 
-          <div class="form-group">
-            <label class="control-label" for="phone">Phone: </label><span class="required">*</span>
-            <input class="form-control" type="number" min="0" name="phone" id="phone" value="<? echo $user->phone;?>" placeholder="Your phone Number.">
-          </div>
+            <div class="form-group">
+              <label class="control-label" for="name">Full Name: </label><span class="required">*</span>
+              <input class="form-control" type="text" name="name" id="name" value="<? echo $user->name;?>" placeholder="Full names as in your ID Card." >
+            </div>
 
-          <div class="form-group">
-            <label class="control-label" for="name">Full Name: </label><span class="required">*</span>
-            <input class="form-control" type="text" name="name" id="name" value="<? echo $user->name;?>" placeholder="Full names as in your ID Card." >
-          </div>
-
-          <div class="form-group">
-            <label class="control-label" for="email">Email: </label>
-            <input class="form-control" type="text" name="email" id="email" value="<? echo $user->email;?>" placeholder="Email Address (Optional)">
-          </div>
+            <div class="form-group">
+              <label class="control-label" for="email">Email: </label>
+              <input class="form-control" type="text" name="email" id="email" value="<? echo $user->email;?>" placeholder="Email Address (Optional)">
+            </div>
+          <? endif;?>
 
           <div class="form-group">
             <label class="control-label" for="description">Complain Description: </label><span class="required">*</span>

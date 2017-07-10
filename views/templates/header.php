@@ -40,6 +40,12 @@
     .body-background{
       background: #f5f8fa !important;
     }
+
+    .alert{
+      border-left: solid;
+      transition: box-shadow .25s;
+      border-radius: 0px;
+    }
     </style>
 
 </head>
@@ -75,7 +81,7 @@
                   <span class="caret"></span></a>
 
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Your Profile</a></li>
+                    <li><a href="<? echo SITE_URL.'/user/dashboard'; ?>">Your Profile</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="/logout" onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">

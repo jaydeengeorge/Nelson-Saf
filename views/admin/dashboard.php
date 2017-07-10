@@ -34,7 +34,7 @@ require_once "views/templates/header.php";
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>User Dashboard</h4>
+          <h4>Admin Dashboard</h4>
         </div>
         <div class="panel-body">
 
