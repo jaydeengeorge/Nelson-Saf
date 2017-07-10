@@ -1,7 +1,6 @@
 <?php
 /**
- * Created by Atom.
- * User: reaper45
+ * Author: <jomwashighadi@gmail.com>
  * Date: 06/24/17
  * Time : 20:29 PM
  *
@@ -14,7 +13,10 @@
  {
    function __construct($method, $parameters = null)
    {
-     $this->$method($parameters);
+     if ($method) {
+       return $this->$method($parameters);
+     }
+     return $this->index($parameters);
    }
 
    public function __call($method, $parameters)

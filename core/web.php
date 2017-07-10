@@ -15,9 +15,6 @@ Route::auth();
 // Home page view
 Route::get('/', 'HomeController@index');
 
-// Users account
-Route::get('/user/dashboard', 'UserController@getUserDashboard');
-
 // Submit a complain
 Route::post('/complain', 'UserController@launchComplain');
 
@@ -27,6 +24,11 @@ Route::post('/login', 'UserController@authenticate');
 // Logout the user
 Route::post('/logout', 'UserController@logout');
 
+// Users account
+Route::get('/user/dashboard', 'UserController@getUserDashboard');
+
+// Admin (Super User)
+Route::get('/admin', 'AdminController');
 
 
 //Testing

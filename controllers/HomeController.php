@@ -15,9 +15,9 @@ use classes\Session;
 class HomeController extends Controller
 {
   // Implemet parent contructor
-  function __construct($method)
+  function __construct($method, $parameters = null)
   {
-    parent::__construct($method);
+    parent::__construct($method $parameters);
   }
 
   // Loading the home view

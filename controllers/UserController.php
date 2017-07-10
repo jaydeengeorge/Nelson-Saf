@@ -22,9 +22,9 @@
  class UserController extends Controller
  {
 
-   function __construct($metod)
+   function __construct($metod, $paremeters = null)
    {
-     parent::__construct($metod);
+     parent::__construct($metod, $paremeters);
    }
 
    public function launchComplain()
