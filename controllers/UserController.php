@@ -16,8 +16,8 @@
  use classes\Session;
  use classes\Validator;
  use classes\View;
- use models\User;
- use models\Complain;
+ use models\Users;
+ use models\Complains;
 
  class UserController extends Controller
  {
@@ -115,7 +115,7 @@
 
    public function createUser($formdata)
    {
-     $user = new User;
+     $user = new Users;
      $uniq_id = uniqid();
 
      $user->id_no = $formdata['id_no'];
@@ -137,7 +137,7 @@
 
    public function createComplain($formdata, $user_id)
    {
-     $complain = new Complain;
+     $complain = new Complains;
 
      $complain->user_id = $user_id;
      $complain->description = $formdata['description'];
@@ -160,7 +160,11 @@
 
    public function previousComplains()
    {
-     return new View('user.previous-complains');
+     $data['title'] = 'Complains';
+
+     $data['complains'] = Complains::all();
+
+     return new View('user.previous-complains', $data);
    }
    // Just a stupid test
    public function test()

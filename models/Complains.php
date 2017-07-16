@@ -32,6 +32,7 @@
    // Agent assigned to (Default NONE)
    public $assigned_to = null;
 
+   public $created_at = "00:00:0000";
    // Save new Complain
    public function save()
    {

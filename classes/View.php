@@ -21,17 +21,7 @@
       if (strchr($path, '.')) {
         $path = str_replace('.', '/', $path);
       }
-      if ($data) {
-        foreach ($data as $key => $value) {
-          $key = $value;
-        }
-      }
       require_once $this->viewdir."{$path}.php";
     }
+
   }
-
-
-/**
-* Class view complete as by: 01:23 AM
-* Do Not Modify this Infomation.
-*/

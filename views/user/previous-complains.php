@@ -16,14 +16,34 @@ require_once "views/templates/header.php";
         <div class="panel-heading">
           <h4>Previous Complains</h4>
         </div>
-        <div class="panel-body text-center">
-
-          <span class="fa-3x glyphicon glyphicon-exclamation-sign"></span>
-          <h3>Comming Soon!</h3>
-        </div>
+        <table class="table table-bordered panel-body">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Description</th>
+              <th>Agent</th>
+              <th>Created</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          <? foreach ($data['complains'] as $complain): ?>
+            <tr>
+              <td><? echo $complain->id; ?></td>
+              <td><? echo $complain->description; ?></td>
+              <td><? echo $complain->assigned_to; ?></td>
+              <td><? echo $complain->created_at; ?></td>
+              <td>
+                <a href="#" class="btn btn-danger btn-delete">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </a>
+              </td>
+            </tr>
+            <? endforeach;?>
+          </tbody>
+        </table>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -34,7 +54,7 @@ require_once "views/templates/footer.php";
 <script type="text/javascript">
 $('body').addClass('body-background');
 $('.list-group-item').removeClass('active');
-$('#prev-complain').addClass('active'); 
+$('#prev-complain').addClass('active');
 
 
 $('.list-group-item').click(function(){

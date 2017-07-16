@@ -1,5 +1,6 @@
 <?php
 
+
 // Page Header
 require_once "views/templates/header.php";
 ?>
@@ -7,7 +8,7 @@ require_once "views/templates/header.php";
 <div class="container" style="height: 80%; margin-top: 30px;">
   <? require_once "views/messages/errors.php"; ?>
   <div class="row">
-    <div class="col-md-3" style="">
+    <div class="col-md-3">
       <? require_once 'sidebar.php'; ?>
     </div>
     <div class="col-md-9">
