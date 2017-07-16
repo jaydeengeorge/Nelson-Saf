@@ -161,8 +161,9 @@
    public function previousComplains()
    {
      $data['title'] = 'Complains';
-
-     $data['complains'] = Complains::all();
+     $user_id = Session::get('user')->id;
+     
+     $data['complains'] = Complains::all($user_id);
 
      return new View('user.previous-complains', $data);
    }

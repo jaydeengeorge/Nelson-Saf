@@ -46,11 +46,15 @@
    }
 
    // Get all complain made by user
-   public static function all()
+   public static function all($user_id = null)
    {
      $db = DB::getInstance();
-     $db->table(self::$table)->select()->get();
-
+     if ($user_id) {
+       // Get complains only made by this user (id)
+       $db->table(self::$table)->select()->where(['user_id',$user_id])->get();
+     }else {
+       $db->table(self::$table)->select()->get();
+     }
      return $db->results();
    }
 
