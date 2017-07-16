@@ -29,7 +29,7 @@ require_once "templates/header.php";
         <a href="#" class="list-group-item">Setting</a>
       </div>
       <a class="btn btn-success" id="editProfile" style="width: 100%;" href="#">Edit Profile</a>
-      <!-- <a class="btn btn-danger" id="deleteProfile" style="width: 100%; margin-top: 20px;" href="#">Delete Profile</a> -->
+      <!-- <a class="btn                                                                                                                      btn-danger" id="deleteProfile" style="width: 100%; margin-top: 20px;" href="#">Delete Profile</a> -->
     </div>
     <div class="col-md-9">
       <div class="panel panel-default">
@@ -38,7 +38,7 @@ require_once "templates/header.php";
         </div>
         <div class="panel-body text-center">
 
-          <span class="fa-3x glyphicon glyphicon-warning-sign"></span>
+          <span class="fa-3x glyphicon glyphicon-exclamation-sign"></span>
           <h3>We are working on your Feedback!</h3>
         </div>
       </div>

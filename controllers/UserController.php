@@ -99,7 +99,7 @@
      if (LoginController::authenticate($user)) {
        return new Response('', 200);
      }
-     $errors = Session::get('errors');
+     $errors = ['error'=>"Error! Invalid login Credentials!"];
      return Response::json($errors, 422);
    }
 
