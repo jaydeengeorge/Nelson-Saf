@@ -33,7 +33,7 @@
       margin: 3px 0;
     }
     .username{
-      outline: dashed 1px;
+      /*outline: dashed 1px;*/
       padding-top: 8px !important;
       padding-bottom: 8px !important;
     }
