@@ -27,6 +27,8 @@ Route::post('/logout', 'UserController@logout');
 // Users account
 Route::get('/user/dashboard', 'UserController@getUserDashboard');
 
+// View previous Complains
+Route::get('/user/previous-complains', 'UserController@previousComplains');
 // Admin (Super User)
 Route::get('/admin', 'AdminController');
 

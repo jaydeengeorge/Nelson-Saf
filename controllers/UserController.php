@@ -107,7 +107,8 @@
    public function getUserDashboard()
    {
      if (Session::has('user')) {
-       return new View('user.dashboard');
+       $data['title'] = 'Dashboard';
+       return new View('user.dashboard', $data);
      }
      return Redirect::to('/');
    }
@@ -157,7 +158,10 @@
      return Redirect::to('/');
    }
 
-
+   public function previousComplains()
+   {
+     return new View('user.previous-complains');
+   }
    // Just a stupid test
    public function test()
    {

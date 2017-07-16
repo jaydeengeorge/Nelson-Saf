@@ -1,4 +1,5 @@
 <?php
+// List all Previos complain user made
 
 // Page Header
 require_once "views/templates/header.php";
@@ -13,12 +14,12 @@ require_once "views/templates/header.php";
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>User Dashboard</h4>
+          <h4>Previous Complains</h4>
         </div>
         <div class="panel-body text-center">
 
           <span class="fa-3x glyphicon glyphicon-exclamation-sign"></span>
-          <h3>We are working on your Feedback!</h3>
+          <h3>Comming Soon!</h3>
         </div>
       </div>
     </div>
@@ -32,6 +33,9 @@ require_once "views/templates/footer.php";
 ?>
 <script type="text/javascript">
 $('body').addClass('body-background');
+$('.list-group-item').removeClass('active');
+$('#prev-complain').addClass('active'); 
+
 
 $('.list-group-item').click(function(){
   $('.list-group-item').removeClass('active');
