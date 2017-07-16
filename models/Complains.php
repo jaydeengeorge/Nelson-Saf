@@ -14,7 +14,7 @@
  use classes\Input;
  use classes\Session;
 
- class Complain implements Model
+ class Complains implements Model
  {
    public static $table = 'complains';
    public static $primary_key = 'id';
@@ -42,6 +42,15 @@
      }
      self::$errors = Arr::push(self::$errors, $db->_errors);
      return $this;
+   }
+
+   // Get all complain made by user
+   public static function all()
+   {
+     $db = DB::getInstance();
+     $db->table(self::$table)->select()->get();
+
+     return $db->results();
    }
 
    // Find Complain by primary key

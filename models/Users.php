@@ -16,7 +16,7 @@
   use classes\Input;
   use classes\Session;
 
-  class User implements Model
+  class Users implements Model
   {
   public static $table = 'users';
   public static $primary_key = 'id';
@@ -69,6 +69,14 @@
       return $db->_results;
     }
     return false;
+  }
+
+  // Fetch all users
+  public static function all()
+  {
+    $db = DB::getInstance();
+
+    return $db->table(self::$table)->select()->get();
   }
 
   // Send secret to user

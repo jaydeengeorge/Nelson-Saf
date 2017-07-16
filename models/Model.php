@@ -22,6 +22,9 @@
 
    // Get record matching input data
    public static function where(array $where);
+
+   // Fetch all records
+   public static function all();
  }
 
  /*
