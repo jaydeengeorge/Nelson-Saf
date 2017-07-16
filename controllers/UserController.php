@@ -107,7 +107,7 @@
    public function getUserDashboard()
    {
      if (Session::has('user')) {
-       return new View('dashboard');
+       return new View('user.dashboard');
      }
      return Redirect::to('/');
    }
