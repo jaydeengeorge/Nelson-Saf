@@ -27,18 +27,18 @@ require_once "views/templates/header.php";
             </tr>
           </thead>
           <tbody>
-          <? foreach ($data['complains'] as $complain): ?>
-            <tr>
-              <td><? echo $complain->id; ?></td>
-              <td><? echo $complain->description; ?></td>
-              <td><? echo $complain->assigned_to; ?></td>
-              <td><? echo $complain->created_at; ?></td>
-              <td>
-                <a href="#" class="btn btn-danger btn-delete">
-                  <span class="glyphicon glyphicon-trash"></span>
-                </a>
-              </td>
-            </tr>
+            <? foreach ($data['complains'] as $complain): ?>
+              <tr>
+                <td><? echo $complain->id; ?></td>
+                <td><? echo $complain->description; ?></td>
+                <td><? echo $complain->assigned_to; ?></td>
+                <td><? echo $complain->created_at; ?></td>
+                <td>
+                  <a href="#" value="<? echo $complain->id; ?>" class="btn btn-danger btn-delete">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+                </td>
+              </tr>
             <? endforeach;?>
           </tbody>
         </table>

@@ -29,6 +29,10 @@ Route::get('/user/dashboard', 'UserController@getUserDashboard');
 
 // View previous Complains
 Route::get('/user/previous-complains', 'UserController@previousComplains');
+
+// Delete Complain
+Route::post('/complain/delete', 'UserController@deleteComplain');
+
 // Admin (Super User)
 Route::get('/admin', 'AdminController');
 

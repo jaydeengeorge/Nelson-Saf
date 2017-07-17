@@ -5,11 +5,12 @@
  * Time: 01:52 AM
  */
 
-function submitForm(formdata, url, method) {
+function httpCall(formdata, url) {
+  console.log(formdata);
   $.ajax({
     method: 'POST',
     url: url,
-    data: formdata,
+    data: {id: 23},
     cache: false,
     contentType: false,
     processData: false,
@@ -17,7 +18,7 @@ function submitForm(formdata, url, method) {
       200: function (data) {
         $.notify(data, "success");
         setTimeout(function (errors) {
-          window.location.reload();
+          // window.location.reload();
         }, 2000)
       },
       404: function (errors) {
@@ -32,7 +33,7 @@ function submitForm(formdata, url, method) {
         $.notify(err.responseJSON, "error");
         setTimeout(function () {
           window.location.reload();
-        }, 1000)
+        }, 2000)
       },
     }
   })
@@ -45,7 +46,7 @@ $('#complain-form').submit(function(e) {
   var formdata = new FormData(this)
   var complainUrl = $(this).attr('action')
 
-  submitForm(formdata, complainUrl);
+  httpCall(formdata, complainUrl);
 })
 
 // Submitting log in form
@@ -55,5 +56,15 @@ $('#login-form').submit(function(e) {
   var formdata = new FormData(this)
   var complainUrl = $(this).attr('action')
 
-  submitForm(formdata, complainUrl);
+  httpCall(formdata, complainUrl);
 })
+
+// Delete complain
+$('.btn-delete').click(function(e){
+  e.preventDefault()
+  data = {
+    id: $(this).attr('value')
+  }
+  // console.log(data);
+  httpCall(data, delComplain);
+});

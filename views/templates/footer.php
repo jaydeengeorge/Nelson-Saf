@@ -71,7 +71,7 @@
 
 <!-- Scripts -->
 <script type="text/javascript">
-
+  var delComplain = "<? echo SITE_URL."/complain/delete"; ?>";
 </script>
 <!-- Jquery -->
 <script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/jquery.js"></script>

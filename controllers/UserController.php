@@ -97,7 +97,7 @@
      $user->secret = Hash::password($formdata['secret']);
 
      if (LoginController::authenticate($user)) {
-       return new Response('', 200);
+       return new Response('Working...', 200);
      }
      $errors = ['error'=>"Error! Invalid login Credentials!"];
      return Response::json($errors, 422);
@@ -162,10 +162,24 @@
    {
      $data['title'] = 'Complains';
      $user_id = Session::get('user')->id;
-     
+
      $data['complains'] = Complains::all($user_id);
 
      return new View('user.previous-complains', $data);
+   }
+
+   // Delete Complains
+   public function deleteComplain()
+   {
+    //  var_dump($POST); exit();
+     $id = Input::post('id');
+     if (Complains::find($id)) {
+       Compalains::delete($id);
+
+       return  new Response('Working', 200);
+     }
+     $errors = ['error'=>'Error Occured! Retry!'];
+     return Response::json($errors, 422);
    }
    // Just a stupid test
    public function test()

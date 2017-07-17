@@ -16,7 +16,7 @@
   use classes\Input;
   use classes\Session;
 
-  class Users implements Model
+  class Users extends Model
   {
   public static $table = 'users';
   public static $primary_key = 'id';

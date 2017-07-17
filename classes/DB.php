@@ -137,6 +137,8 @@ class DB
   // Delete data from the db
   public function delete()
   {
+    $this->_queryString = "DELETE FROM {$this->_table}";
+
     return $this;
   }
 
@@ -158,6 +160,7 @@ class DB
 
     // Add the where clause
     $this->_queryString .= " WHERE {$column} {$operator} {$value}";
+    // var_dump($this->_queryString); exit();
 
     return $this;
   }
