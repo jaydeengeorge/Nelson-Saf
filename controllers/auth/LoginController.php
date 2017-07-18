@@ -15,7 +15,7 @@ use classes\Redirect;
 use classes\Session;
 use classes\Validator;
 use classes\View;
-use models\User;
+use models\Users;
 
 class LoginController extends Controller
 {
@@ -37,22 +37,18 @@ class LoginController extends Controller
  public static function authenticate($user)
  {
    // Find user with email
-   $user_exists = User::where(['phone', $user->phone]);
+   $user_exists = Users::where(['phone', $user->phone]);
 
    if ($user_exists) {
      $secret = Hash::password($user->secret);
+    //  var_dump($user_exists->secret, $secret); exit();
 
      if ($user_exists->secret == $secret) {
        Session::put('user', $user_exists);
        return true;
-     }else {
-       $errors = ['error' => "Invalid {$user_exists->secret} - {$secret} Combination!"];
-       Session::put('errors', $errors);
-
-       return false;
      }
    }
-   $errors = ['error' => "{$user->phone} Not Found in our Records!"];
+   $errors = ['error' => "Invalid Login Credentials!"];
    Session::put('errors', $errors);
 
    return false;

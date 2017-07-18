@@ -6,11 +6,10 @@
  */
 
 function httpCall(formdata, url) {
-  console.log(formdata);
   $.ajax({
     method: 'POST',
     url: url,
-    data: {id: 23},
+    data: formdata,
     cache: false,
     contentType: false,
     processData: false,
@@ -18,7 +17,7 @@ function httpCall(formdata, url) {
       200: function (data) {
         $.notify(data, "success");
         setTimeout(function (errors) {
-          // window.location.reload();
+          window.location.reload();
         }, 2000)
       },
       404: function (errors) {

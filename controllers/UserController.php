@@ -92,14 +92,15 @@
 
        return Response::json($errors, 422);
      }
-     $user = new User;
+     $user = new Users;
+
      $user->phone = $formdata['phone'];
      $user->secret = Hash::password($formdata['secret']);
 
      if (LoginController::authenticate($user)) {
        return new Response('Working...', 200);
      }
-     $errors = ['error'=>"Error! Invalid login Credentials!"];
+     $errors = Session::get('errors');
      return Response::json($errors, 422);
    }
 

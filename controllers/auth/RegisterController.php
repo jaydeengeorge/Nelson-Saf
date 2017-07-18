@@ -14,7 +14,7 @@ use classes\Redirect;
 use classes\Session;
 use classes\Validator;
 use classes\View;
-use models\User;
+use models\Users;
 
  class RegisterController extends Controller
  {
@@ -56,13 +56,13 @@ use models\User;
        return Redirect::back();
      }
 
-     $user = new User;
+     $user = new Users;
 
      $user->f_name   = $formdata['f_name'];
      $user->l_name   = $formdata['l_name'];
      $user->email    = $formdata['email'];
      $user->password = Hash::password(Input::post('password'));
 
-     return User::create($user);
+     return Users::create($user);
    }
  }
