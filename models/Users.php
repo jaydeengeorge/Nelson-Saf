@@ -16,7 +16,7 @@
   use classes\Input;
   use classes\Session;
 
-  class Users extends Model
+  class Users implements Model
   {
   public static $table = 'users';
   public static $primary_key = 'id';
@@ -64,7 +64,7 @@
     $db = DB::getInstance();
 
     // Run a select query
-    $db->table(self::$table)->select()->where($where)->get();
+    $db->table(self::$table)->select()->where($where)->first();
     if ($db->_results) {
       return $db->_results;
     }
