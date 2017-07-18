@@ -198,4 +198,12 @@ class DB
   {
     return $this->_count;
   }
+
+  public function first()
+  {
+    $this->get();
+    $this->_results = $this->_results[0];
+
+    return $this->_results;
+  }
 }
