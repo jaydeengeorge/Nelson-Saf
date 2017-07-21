@@ -95,7 +95,7 @@
               </li>
             <? elseif (classes\Session::has('admin')): ?>
             <li style="margin-right: 10px">
-              <a href="#">
+              <a href="<? echo SITE_URL.'/admin'?>">
                 <? echo explode(' ', classes\Session::get('admin')->name)[0]; ?> &nbsp;(Admin)
                 </a>
               </li>

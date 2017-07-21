@@ -8,6 +8,7 @@
  namespace controllers;
 
  use controllers\auth\LoginController;
+ use classes\DB;
  use classes\Hash;
  use classes\Input;
  use classes\Redirect;
@@ -40,7 +41,13 @@
      if (!$this->check()) {
        return Redirect::to('admin/login');
      }
-     return new View('admin.dashboard');
+     $db = new DB;
+     $data['complains'] = $db->table('complains')->all()->count();
+     $data['users'] = $db->table('users')->all()->count();
+     $data['agents'] = 52;
+    //  $data['agents'] = $db->table('agents')->all()->count();
+    
+     return new View('admin.dashboard', $data);
    }
 
    public function getLogin()
