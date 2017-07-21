@@ -150,6 +150,7 @@
      }
      return true;
    }
+
    // Logout the User
    public function logout()
    {

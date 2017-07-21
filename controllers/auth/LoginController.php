@@ -15,6 +15,7 @@ use classes\Redirect;
 use classes\Session;
 use classes\Validator;
 use classes\View;
+use models\Admins;
 use models\Users;
 
 class LoginController extends Controller
@@ -45,6 +46,25 @@ class LoginController extends Controller
 
      if ($user_exists->secret == $secret) {
        Session::put('user', $user_exists);
+       return true;
+     }
+   }
+   $errors = ['error' => "Invalid Login Credentials!"];
+   Session::put('errors', $errors);
+
+   return false;
+ }
+
+ public static function adminAuthenticate($admin)
+ {
+   // Find user with email
+   $admin_exists = Admins::where(['username', $admin->username]);
+
+   if ($admin_exists) {
+     $password = Hash::password($admin->password);
+
+     if ($admin_exists->password == $password) {
+       Session::put('admin', $admin_exists);
        return true;
      }
    }
