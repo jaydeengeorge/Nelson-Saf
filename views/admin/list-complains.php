@@ -13,9 +13,9 @@ require_once "views/templates/header.php";
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>Admin Dashboard</h4>
+          <h4>All Complains/ Issues</h4>
         </div>
-        <table>
+        <table class="table table-bordered panel-body">
           <thead>
             <tr>
               <th>Id</th>
@@ -32,7 +32,13 @@ require_once "views/templates/header.php";
                 <td><? echo $complain->id; ?></td>
                 <td><? echo $complain->description; ?></td>
                 <td><? echo $complain->by; ?></td>
-                <td><? echo $complain->assigned_to ? $complain->assigned_to: '-'; ?></td>
+                <td>
+                  <span class="label label-success"></span>
+                  <? echo $complain->assigned_to ?
+                  "<span class='label label-success'>".models\Users::where(['id',$complain->assigned_to])->name."</span>" :
+                  "<span class='label label-danger'>Assign agent</span>"; ?>
+                </td>
+
                 <td><? echo $complain->created_at; ?></td>
                 <td>
                   <a href="#" value="<? echo $complain->id; ?>" class="btn btn-danger btn-delete">
@@ -47,3 +53,7 @@ require_once "views/templates/header.php";
       </div>
     </div>
   </div>
+  <!-- page Footer -->
+  <?
+  require_once "views/templates/footer.php";
+  ?>

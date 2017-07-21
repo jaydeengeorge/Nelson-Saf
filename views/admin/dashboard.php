@@ -80,11 +80,3 @@ require_once "views/templates/header.php";
 <?
 require_once "views/templates/footer.php";
 ?>
-<script type="text/javascript">
-$('body').addClass('body-background');
-
-$('.list-group-item').click(function(){
-  $('.list-group-item').removeClass('active');
-  $(this).addClass('active')
-})
-</script>

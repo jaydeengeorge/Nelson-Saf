@@ -82,6 +82,15 @@
 <!-- Custom js -->
 <script type="text/javascript" src="<? echo BASE_URL; ?>/assets/js/master.js"></script>
 
+<script type="text/javascript">
+$('body').addClass('body-background');
+
+$('.list-group-item').click(function(){
+  $('.list-group-item').removeClass('active');
+  $(this).addClass('active')
+})
+</script>
+
 </body>
 </html>
 <?

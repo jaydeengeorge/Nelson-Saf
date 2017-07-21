@@ -12,7 +12,7 @@
     Darshboard <span class="glyphicon glyphicon-dashboard pull-right"></span>
   </div>
   <div class="list-group">
-    <a href="#" class="list-group-item">
+    <a href="<? echo SITE_URL."/admin/list-complains"?>" class="list-group-item">
       Complains<span class="glyphicon glyphicon-exclamation-sign pull-right"></span></a>
     <a href="#" class="list-group-item">
       Manage Agents<span class="glyphicon glyphicon-briefcase pull-right"></span></a>

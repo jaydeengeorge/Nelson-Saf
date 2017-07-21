@@ -16,6 +16,7 @@
  use classes\Validator;
  use classes\View;
  use models\Admins;
+ use models\Complains;
  use models\Users;
 
  class AdminController extends Controller
@@ -44,9 +45,13 @@
      $db = new DB;
      $data['complains'] = $db->table('complains')->all()->count();
      $data['users'] = $db->table('users')->all()->count();
-     $data['agents'] = 52;
-    //  $data['agents'] = $db->table('agents')->all()->count();
-    
+     $data['agents'] = $db->table('agents')->all()->count();
+     $data['responses'] = $db->table('responses')->all()->count();
+
+     $data['solved'] = $db->table('agents')->all()->count();
+     $data['unassigned'] = $db->table('agents')->all()->count();
+     $data['made_today'] = $db->table('agents')->all()->count();
+
      return new View('admin.dashboard', $data);
    }
 
@@ -94,5 +99,13 @@
        Session::forget('admin');
      }
      return Redirect::to('/');
+   }
+
+   // List all Complains
+   public function getAllComplains()
+   {
+     $data['complains'] = Complains::all();
+
+     return new View('admin.list-complains', $data);
    }
  }
