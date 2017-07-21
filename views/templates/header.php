@@ -99,6 +99,12 @@
                 <? echo explode(' ', classes\Session::get('admin')->name)[0]; ?> &nbsp;(Admin)
                 </a>
               </li>
+            <? elseif (classes\Session::has('agent')): ?>
+            <li style="margin-right: 10px">
+              <a href="#">
+                <? echo explode(' ', classes\Session::get('agent')->name)[0]; ?> &nbsp;(Agent)
+                </a>
+              </li>
             <? else: ?>
               <li class="action-btn" style="margin-top: 7px;">
                 <a style="padding: 8px !important; margin-top: 0px !important;" href="#" data-toggle="modal" data-target="#loginModal" >Your FeedBack</a></li>

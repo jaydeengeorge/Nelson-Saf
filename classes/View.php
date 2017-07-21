@@ -16,7 +16,15 @@
 
     function __construct($path, $data = null)
     {
-      $user = !Session::has('user') ?:Session::get('user'); // Pass user to view if signed-in
+      if (Session::has('admin')) {
+        $admin = Session::get('admin');
+      }
+      elseif (Session::has('agent')) {
+        $agent = Session::get('agent');
+      }
+      elseif (Session::has('user')) {
+        $user = Session::get('user');
+      }
 
       if (strchr($path, '.')) {
         $path = str_replace('.', '/', $path);
