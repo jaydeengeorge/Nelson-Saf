@@ -20,11 +20,16 @@
      }
      $errors = ['error'=> "Access Denied!!!"];
      Session::put('errors', $errors);
-     return Redirect::to('/');
+     return $this->getLogin();
    }
 
    public function index()
    {
      return new View('admin.dashboard');
+   }
+
+   public function getLogin()
+   {
+     return new View('admin.login');
    }
  }

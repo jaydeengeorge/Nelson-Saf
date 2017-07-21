@@ -5,7 +5,7 @@ require_once "views/templates/header.php";
 ?>
 <!-- Page content -->
 <div class="container" style="height: 80%; margin-top: 30px;">
-
+  <? require_once "views/messages/errors.php"; ?>
   <div class="row">
     <div class="col-md-3" style="">
       <div class="profile-container">
@@ -47,7 +47,7 @@ require_once "views/templates/header.php";
 
 <!-- page Footer -->
 <?
-require_once "templates/footer.php";
+require_once "views/templates/footer.php";
 ?>
 <script type="text/javascript">
 $('body').addClass('body-background');

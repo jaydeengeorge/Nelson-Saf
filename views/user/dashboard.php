@@ -1,6 +1,5 @@
 <?php
 
-
 // Page Header
 require_once "views/templates/header.php";
 ?>
