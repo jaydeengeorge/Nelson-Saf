@@ -27,22 +27,7 @@
   public $password;
 
   // // Create New admin
-  // public function save()
-  // {
-  //   // Check if admin exists
-  //   $admin_exists = self::where(['id_no', $this->id_no]);
-  //   if(!$admin_exists){
-  //     $db = DB::getInstance();
-  //     // Create a new admin
-  //     if($db->table(self::$table)->insert($this)){
-  //       return $db->_results;
-  //     }
-  //     Session::put('errors', Arr::push('db_errors', $db->_errors));
-  //     return false;
-  //   }
-  //   // Return the admin if already exists
-  //   return $admin_exists;
-  // }
+  public function save() { }
 
   // Update admin
   // public function update(){}

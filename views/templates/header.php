@@ -93,6 +93,12 @@
                     <input type="hidden" name="id" value="<? echo classes\Session::get('user')->id ?>" >
                   </form>
               </li>
+            <? elseif (classes\Session::has('admin')): ?>
+            <li style="margin-right: 10px">
+              <a href="#">
+                <? echo explode(' ', classes\Session::get('admin')->name)[0]; ?> &nbsp;(Admin)
+                </a>
+              </li>
             <? else: ?>
               <li class="action-btn" style="margin-top: 7px;">
                 <a style="padding: 8px !important; margin-top: 0px !important;" href="#" data-toggle="modal" data-target="#loginModal" >Your FeedBack</a></li>

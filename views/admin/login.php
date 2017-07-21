@@ -13,7 +13,7 @@ require_once "views/templates/header.php";
           <h4>Admin Login</h4>
         </div>
         <div class="panel-body">
-          <form class="form-horizontal" id="adminLogin" action="<? echo SITE_URL."/admin/authenticate"; ?>" method="post">
+          <form class="form-horizontal" id="adminLogin" action="<? echo SITE_URL."/admin/login"; ?>" method="post">
             <div class="form-group">
               <label for="username" class="form-label">Username</label>
               <input id="username" class="form-control" type="text" name="username" >
@@ -25,7 +25,7 @@ require_once "views/templates/header.php";
           </form>
         </div>
         <div class="panel-footer text-right">
-          <button class="btn btn-primary" type="submit" form="adminLogin" name="button">Login</button>
+          <button class="btn btn-primary" type="submit" form="adminLogin">Login</button>
         </div>
       </div>
     </div>
