@@ -184,6 +184,12 @@ class DB
     return $this;
   }
 
+  // select all
+  public function all()
+  {
+    $this->select()->get();
+    return $this;
+  }
   public function errors()
   {
     return $this->_errors;
