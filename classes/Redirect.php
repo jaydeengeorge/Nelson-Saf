@@ -43,6 +43,7 @@
                     break;
             }
         }
+        $where = '/'.ltrim($where , '/');
         header('Location: '.SITE_URL.$where); // To be replaced with route
         exit();
     }
