@@ -172,7 +172,7 @@
    // Delete Complains
    public function deleteComplain()
    {
-    //  var_dump($POST); exit();
+    //  var_dump($_POST); exit();
      $id = Input::post('id');
      if (Complains::find($id)) {
        Compalains::delete($id);

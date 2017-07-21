@@ -62,6 +62,8 @@ class Complains implements Model
   // Find Complain by primary key
   public static function find($id)
   {
+    //  var_dump($id); exit();
+
     return self::where([self::$primary_key, $id]);
   }
 

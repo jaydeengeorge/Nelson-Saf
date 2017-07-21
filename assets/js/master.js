@@ -17,7 +17,7 @@ function httpCall(formdata, url) {
       200: function (data) {
         $.notify(data, "success");
         setTimeout(function (errors) {
-          window.location.reload();
+          // window.location.reload();
         }, 2000)
       },
       404: function (errors) {
@@ -62,8 +62,12 @@ $('#login-form').submit(function(e) {
 $('.btn-delete').click(function(e){
   e.preventDefault()
   data = {
-    id: $(this).attr('value')
+    id: 4,
+    name: 'joram'
   }
-  // console.log(data);
-  httpCall(data, delComplain);
+  var formdata = new FormData()
+  formdata.values = data
+
+  console.log(formdata);
+  httpCall(formdata, delComplain);
 });
