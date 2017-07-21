@@ -36,6 +36,11 @@ Route::post('/complain/delete', 'UserController@deleteComplain');
 // Admin (Super User)
 Route::get('/admin', 'AdminController');
 
+// Admin (Super User)
+Route::get('/admin/login', 'AdminController@getLogin');
+
+// Authenticate admin
+Route::post('/admin/login', 'AdminController@authenticate');
 
 //Testing
 Route::get('/test', 'UserController@test');
