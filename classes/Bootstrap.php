@@ -50,10 +50,10 @@
        $action = explode('@', $routes[$current_uri]);
        $classname = 'controllers\\'.$action[0];
 
-       return new $classname($action[1]);
+       return new $classname($action[1], $query_str);
      }
      $data['title'] = "Not Found";
-     $data['error'] = "Route {$uri} Not Found";
+     $data['error'] = "Route {$current_uri} Not Found!";
 
      http_response_code(404);
      return new View('404', $data);

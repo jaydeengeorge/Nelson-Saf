@@ -20,6 +20,6 @@
  $request_method = $_SERVER['REQUEST_METHOD'];
 
  // Query string f exists
- $query_str = $_SERVER['QUERY_STRING"'];
+ $query_str = $_SERVER['QUERY_STRING'];
 
  $app = new classes\Bootstrap($current_uri, $request_method, $prev_uri ,$query_str);

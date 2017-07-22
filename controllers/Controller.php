@@ -11,15 +11,20 @@
 
  class Controller
  {
-   function __construct($method, $parameters = null)
+   function __construct($method, $args = null)
    {
-     if ($method) {
-       return $this->$method($parameters);
+     if ($args) {
+       $args = explode('=', $args);
+       $args = array($args[0] => $args[1]);
      }
-     return $this->index($parameters);
+
+     if ($method) {
+       return $this->$method($args);
+     }
+     return $this->index($args);
    }
 
-   public function __call($method, $parameters)
+   public function __call($method, $args)
    {
      $data['error'] = "Trying to access undefined method {$method}";
      return new View('404', $data);

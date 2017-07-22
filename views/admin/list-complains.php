@@ -31,11 +31,13 @@ require_once "views/templates/header.php";
               <tr>
                 <td><? echo $complain->id; ?></td>
                 <td><? echo $complain->description; ?></td>
-                <td><? echo $complain->by; ?></td>
+                <td><a href="<?echo SITE_URL.'/user/profile?id='.$complain->user_id; ?>" >
+                  <? echo explode(' ', models\Users::where(['id',$complain->user_id])->name)[0]; ?></a>
+                </td>
                 <td>
                   <span class="label label-success"></span>
                   <? echo $complain->assigned_to ?
-                  "<span class='label label-success'>".models\Users::where(['id',$complain->assigned_to])->name."</span>" :
+                  "<span class='label label-success'>".models\Agents::where(['id',$complain->assigned_to])->username."</span>" :
                   "<span class='label label-danger'>Assign agent</span>"; ?>
                 </td>
 

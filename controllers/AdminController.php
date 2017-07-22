@@ -108,4 +108,22 @@
 
      return new View('admin.list-complains', $data);
    }
+
+   // View users public profile-details
+   public function getUserProfile($query)
+   {
+     $validator = new Validator;
+     $validate = $validator->make($query,[
+       'id'=>'required|numeric'
+     ]);
+
+     // If errors exists redirect back
+     if ($validator->fails()) {
+       return Redirect::back();
+     }
+
+     $data['user'] = Users::where(['id', $query['id']]);
+
+     return new View('admin.user-profile', $data);
+   }
  }

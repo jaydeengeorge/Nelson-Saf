@@ -55,6 +55,8 @@ Route::post('/admin/login', 'AdminController@authenticate');
 // All Complains view
 Route::get('/admin/list-complains', 'AdminController@getAllComplains');
 
+Route::get('/user/profile', 'AdminController@getUserProfile');
+
 
 /*
 * Agents Routes
