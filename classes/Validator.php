@@ -114,6 +114,16 @@
       return true;
     }
 
+    public function numeric($key)
+    {
+      if (!is_numeric($this->data[$key])) {
+        $error = "The field {$key} must be numeric.";
+        $this->errors = Arr::push($this->errors, $error);
+        return false;
+      }
+      return true;
+    }
+
     public function unique($key)
     {
         // TODO: Value passes is unique in Specific table
