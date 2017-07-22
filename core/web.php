@@ -57,6 +57,9 @@ Route::get('/admin/list-complains', 'AdminController@getAllComplains');
 
 Route::get('/user/profile', 'AdminController@getUserProfile');
 
+// list all agents
+Route::get('/agents/all', 'AdminController@getAllAgents');
+
 
 /*
 * Agents Routes

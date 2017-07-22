@@ -76,7 +76,7 @@
   {
     $db = DB::getInstance();
 
-    return $db->table(self::$table)->select()->get();
+    return $db->table(self::$table)->all();
   }
 
   // Send secret to user

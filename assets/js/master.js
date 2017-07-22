@@ -71,3 +71,19 @@ $('.btn-delete').click(function(e){
   console.log(formdata);
   httpCall(formdata, delComplain);
 });
+
+// Assign issues to agent
+$('.assign-to').click(function (e) {
+  e.preventDefault()
+  var compalain_id = $(this).attr('value')
+
+  $.get(listAgents).done(
+    function (data) {
+      $('#agentsModal').modal('toggle')
+        console.log(data.agents);
+      $.each(data.agents, function (key, agent) {
+        $('#agent_list').append("<li>"+agent.name+"</li>")
+      })
+    }
+  )
+})

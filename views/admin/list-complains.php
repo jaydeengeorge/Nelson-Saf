@@ -34,17 +34,17 @@ require_once "views/templates/header.php";
                 <td><a href="<?echo SITE_URL.'/user/profile?id='.$complain->user_id; ?>" >
                   <? echo explode(' ', models\Users::where(['id',$complain->user_id])->name)[0]; ?></a>
                 </td>
-                <td>
+                <td class="text-center">
                   <span class="label label-success"></span>
                   <? echo $complain->assigned_to ?
                   "<span class='label label-success'>".models\Agents::where(['id',$complain->assigned_to])->username."</span>" :
-                  "<span class='label label-danger'>Assign agent</span>"; ?>
+                  "<span class='label label-danger assign-to' value='{$complain->id}'>Assign agent</span>"; ?>
                 </td>
 
                 <td><? echo $complain->created_at; ?></td>
-                <td>
+                <td class="text-center">
                   <a href="#" value="<? echo $complain->id; ?>" class="btn btn-danger btn-delete">
-                    <span class="glyphicon glyphicon-trash"></span>
+                    <span style="font-size: 0.9em;" class="glyphicon glyphicon-trash"></span>
                   </a>
                 </td>
               </tr>
@@ -56,6 +56,23 @@ require_once "views/templates/header.php";
     </div>
   </div>
   <!-- page Footer -->
+
+  <!-- Agents List Modal -->
+  <div class="modal fade" id="agentsModal" tabindex="-1" role="dialog" aria-labelledby="agentsModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          Select Agent To Assign
+        </div>
+        <div class="modal-body">
+          <ul id="agent_list">
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <?
   require_once "views/templates/footer.php";
   ?>

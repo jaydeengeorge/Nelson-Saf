@@ -195,3 +195,6 @@ footer{
   margin-bottom: 15px;
   text-align: center;
 }
+.assign-to{
+  cursor: pointer;
+}

@@ -12,10 +12,12 @@
  use classes\Hash;
  use classes\Input;
  use classes\Redirect;
+ use classes\Response;
  use classes\Session;
  use classes\Validator;
  use classes\View;
  use models\Admins;
+ use models\Agents;
  use models\Complains;
  use models\Users;
 
@@ -125,5 +127,12 @@
      $data['user'] = Users::where(['id', $query['id']]);
 
      return new View('admin.user-profile', $data);
+   }
+
+   // List all Agents
+   public function getAllAgents()
+   {
+     $agents = ['agents' => Agents::all()];
+     return Response::json($agents, 200);;
    }
  }
